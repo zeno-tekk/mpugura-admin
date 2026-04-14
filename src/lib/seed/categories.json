@@ -1,0 +1,62 @@
+[
+  {
+    "id": "road-signs",
+    "icon": "warning",
+    "color": "#1E3A8A",
+    "bgColor": "#EFF6FF",
+    "titleKey": "categories.roadSigns.title",
+    "descriptionKey": "categories.roadSigns.description",
+    "order": 1,
+    "published": true,
+    "title": {
+      "rw": "Ibimenyetso by'Imihanda",
+      "en": "Road Signs",
+      "fr": "Panneaux de Signalisation"
+    },
+    "description": {
+      "rw": "Iga ibimenyetso byo mu mihanda no gusobanukirwa nazo",
+      "en": "Learn traffic signs and understand their meanings",
+      "fr": "Apprenez les panneaux et leur signification"
+    }
+  },
+  {
+    "id": "traffic-rules",
+    "icon": "car",
+    "color": "#065F46",
+    "bgColor": "#ECFDF5",
+    "titleKey": "categories.trafficRules.title",
+    "descriptionKey": "categories.trafficRules.description",
+    "order": 2,
+    "published": true,
+    "title": {
+      "rw": "Amategeko y'Umuhanda",
+      "en": "Traffic Rules",
+      "fr": "Code de la Route"
+    },
+    "description": {
+      "rw": "Iga amategeko y'umuhanda no gukurikira amabwiriza",
+      "en": "Learn traffic laws and road regulations",
+      "fr": "Apprenez les lois de la circulation et les règlements"
+    }
+  },
+  {
+    "id": "driving-behavior",
+    "icon": "shield-checkmark",
+    "color": "#6B21A8",
+    "bgColor": "#F5F3FF",
+    "titleKey": "categories.drivingBehavior.title",
+    "descriptionKey": "categories.drivingBehavior.description",
+    "order": 3,
+    "published": true,
+    "title": {
+      "rw": "Imyitwarire yo Gutwara",
+      "en": "Driving Behavior",
+      "fr": "Comportement au Volant"
+    },
+    "description": {
+      "rw": "Iga imyitwarire myiza yo gutwara imodoka neza",
+      "en": "Learn safe driving practices and road etiquette",
+      "fr": "Apprenez les bonnes pratiques de conduite"
+    }
+  }
+]

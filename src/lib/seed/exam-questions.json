@@ -1,0 +1,1177 @@
+[
+  {
+    "id": "eq1",
+    "question": {
+      "en": "What shape are warning signs in Rwanda?",
+      "fr": "Quelle forme ont les panneaux d'avertissement au Rwanda?",
+      "rw": "Ibimenyetso by'akaga bifite isura irihe mu Rwanda?"
+    },
+    "options": [
+      {
+        "text": {
+          "en": "Circle with red border",
+          "fr": "Cercle avec bord rouge",
+          "rw": "Umuzingo ufite umupaka utukura"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Triangle with red border",
+          "fr": "Triangle avec bord rouge",
+          "rw": "Izitrangle ifite umupaka utukura"
+        },
+        "isCorrect": true
+      },
+      {
+        "text": {
+          "en": "Rectangle with blue background",
+          "fr": "Rectangle avec fond bleu",
+          "rw": "Inderuguye ifite inzizi y'ubururu"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Diamond with yellow border",
+          "fr": "Losange avec bord jaune",
+          "rw": "Lisangi ifite umupaka w'umuhondo"
+        },
+        "isCorrect": false
+      }
+    ],
+    "explanation": {
+      "en": "Warning signs in Rwanda are triangular with a red border.",
+      "fr": "Les panneaux d'avertissement sont triangulaires avec un bord rouge.",
+      "rw": "Ibimenyetso by'akaga mu Rwanda ni izitrangle zifite umupaka utukura."
+    }
+  },
+  {
+    "id": "eq2",
+    "question": {
+      "en": "What is the speed limit in urban areas in Rwanda?",
+      "fr": "Quelle est la limite de vitesse en zone urbaine au Rwanda?",
+      "rw": "Umuvuduko ngemwe mu mujyi mu Rwanda ni uw'ingahe?"
+    },
+    "options": [
+      {
+        "text": {
+          "en": "30 km/h",
+          "fr": "30 km/h",
+          "rw": "30 km/h"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "80 km/h",
+          "fr": "80 km/h",
+          "rw": "80 km/h"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "50 km/h",
+          "fr": "50 km/h",
+          "rw": "50 km/h"
+        },
+        "isCorrect": true
+      },
+      {
+        "text": {
+          "en": "100 km/h",
+          "fr": "100 km/h",
+          "rw": "100 km/h"
+        },
+        "isCorrect": false
+      }
+    ],
+    "explanation": {
+      "en": "The speed limit in urban areas in Rwanda is 50 km/h.",
+      "fr": "La limite de vitesse en zone urbaine au Rwanda est de 50 km/h.",
+      "rw": "Umuvuduko ngemwe mu mujyi mu Rwanda ni 50 km/h."
+    }
+  },
+  {
+    "id": "eq3",
+    "question": {
+      "en": "What color are obligation/mandatory signs?",
+      "fr": "Quelle est la couleur des panneaux d'obligation?",
+      "rw": "Ibimenyetso by'inshingwa bifite ibara rikihe?"
+    },
+    "options": [
+      {
+        "text": {
+          "en": "Red",
+          "fr": "Rouge",
+          "rw": "Agahundo"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Yellow",
+          "fr": "Jaune",
+          "rw": "Umuhondo"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Blue",
+          "fr": "Bleu",
+          "rw": "Ubururu"
+        },
+        "isCorrect": true
+      },
+      {
+        "text": {
+          "en": "Green",
+          "fr": "Vert",
+          "rw": "Icyatsi"
+        },
+        "isCorrect": false
+      }
+    ],
+    "explanation": {
+      "en": "Obligation signs use blue circular backgrounds.",
+      "fr": "Les panneaux d'obligation utilisent des fonds circulaires bleus.",
+      "rw": "Ibimenyetso by'inshingwa bikoresha inzizi y'ubururu."
+    }
+  },
+  {
+    "id": "eq4",
+    "question": {
+      "en": "What must you do at a STOP sign?",
+      "fr": "Que devez-vous faire à un panneau STOP?",
+      "rw": "Ugomba gukora iki ku kimenyetso HAGARARA?"
+    },
+    "options": [
+      {
+        "text": {
+          "en": "Slow down and check",
+          "fr": "Ralentir et vérifier",
+          "rw": "Gabanya no kureba"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Come to a complete stop, then proceed when safe",
+          "fr": "S'arrêter complètement, puis avancer quand c'est sûr",
+          "rw": "Hagarara burundu, hanyuma ujye imbere iyo hahagaze"
+        },
+        "isCorrect": true
+      },
+      {
+        "text": {
+          "en": "Sound horn and proceed",
+          "fr": "Klaxonner et continuer",
+          "rw": "Kika inzoga maze ujye imbere"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Flash headlights and go",
+          "fr": "Faire clignoter et partir",
+          "rw": "Kinga amatara maze ujye imbere"
+        },
+        "isCorrect": false
+      }
+    ],
+    "explanation": {
+      "en": "At a STOP sign, come to a complete stop and proceed only when safe.",
+      "fr": "Au panneau STOP, arrêt complet puis avancer quand c'est sûr.",
+      "rw": "Ku kimenyetso HAGARARA, hagarara burundu hanyuma ujye imbere iyo hahagaze."
+    }
+  },
+  {
+    "id": "eq5",
+    "question": {
+      "en": "The 2-second rule refers to:",
+      "fr": "La règle des 2 secondes concerne:",
+      "rw": "Itegeko rya iminota 2 rivuga:"
+    },
+    "options": [
+      {
+        "text": {
+          "en": "How long to check mirrors",
+          "fr": "Durée de vérification des rétroviseurs",
+          "rw": "Igihe cyo kureba amatara y'inyuma"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Minimum safe following distance",
+          "fr": "Distance minimale de sécurité",
+          "rw": "Intera ntarengwa nyabukuru"
+        },
+        "isCorrect": true
+      },
+      {
+        "text": {
+          "en": "Time needed to signal a turn",
+          "fr": "Temps de signalisation d'un virage",
+          "rw": "Igihe cyo gutanga ikimenyetso"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Duration to stop at a stop sign",
+          "fr": "Durée à un stop",
+          "rw": "Igihe cy'igihagararo"
+        },
+        "isCorrect": false
+      }
+    ],
+    "explanation": {
+      "en": "The 2-second rule helps you maintain a minimum safe following distance.",
+      "fr": "La règle des 2 secondes aide à maintenir une distance de sécurité minimale.",
+      "rw": "Itegeko rya iminota 2 rigufasha gufata intera ntarengwa nyabukuru."
+    }
+  },
+  {
+    "id": "eq6",
+    "question": {
+      "en": "At a roundabout, who has the right of way?",
+      "fr": "Dans un rond-point, qui a la priorité?",
+      "rw": "Mu lizire, nde ufite uburenganzira bwo gutunga inzira?"
+    },
+    "options": [
+      {
+        "text": {
+          "en": "Vehicles entering",
+          "fr": "Véhicules entrant",
+          "rw": "Imodoka zinjira"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "The largest vehicle",
+          "fr": "Le plus grand véhicule",
+          "rw": "Imodoka nini"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Vehicles already in the roundabout",
+          "fr": "Véhicules déjà dans le rond-point",
+          "rw": "Imodoka ziri mu lizire"
+        },
+        "isCorrect": true
+      },
+      {
+        "text": {
+          "en": "The vehicle on the right",
+          "fr": "Le véhicule de droite",
+          "rw": "Imodoka iburyo"
+        },
+        "isCorrect": false
+      }
+    ],
+    "explanation": {
+      "en": "Vehicles already circulating inside the roundabout have right of way.",
+      "fr": "Les véhicules circulant dans le rond-point ont la priorité.",
+      "rw": "Imodoka ziri mu lizire zifite uburenganzira."
+    }
+  },
+  {
+    "id": "eq7",
+    "question": {
+      "en": "What does a solid yellow center line mean?",
+      "fr": "Que signifie une ligne jaune continue au centre?",
+      "rw": "Umurongo w'umuhondo uzima hagati bisobanura iki?"
+    },
+    "options": [
+      {
+        "text": {
+          "en": "Overtaking is permitted",
+          "fr": "Le dépassement est permis",
+          "rw": "Gusubiranira byemewe"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "No overtaking allowed",
+          "fr": "Dépassement interdit",
+          "rw": "Gusubiranira birabujijwe"
+        },
+        "isCorrect": true
+      },
+      {
+        "text": {
+          "en": "Road is closed",
+          "fr": "Route fermée",
+          "rw": "Inzira ifunzwe"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "High speed zone",
+          "fr": "Zone de haute vitesse",
+          "rw": "Akarere k'umuvuduko mwinshi"
+        },
+        "isCorrect": false
+      }
+    ],
+    "explanation": {
+      "en": "A solid yellow center line means no overtaking.",
+      "fr": "Une ligne jaune continue signifie dépassement interdit.",
+      "rw": "Umurongo w'umuhondo uzima bisobanura ko gusubiranira birabujijwe."
+    }
+  },
+  {
+    "id": "eq8",
+    "question": {
+      "en": "When may you overtake on a hill?",
+      "fr": "Quand peut-on dépasser sur une côte?",
+      "rw": "Ni ryari ushobora gusubiranira ku gasozi?"
+    },
+    "options": [
+      {
+        "text": {
+          "en": "Always",
+          "fr": "Toujours",
+          "rw": "Igihe cyose"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "When you can see clearly ahead",
+          "fr": "Quand la visibilité est bonne",
+          "rw": "Iyo ubona neza imbere"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Never, visibility is limited",
+          "fr": "Jamais, visibilité limitée",
+          "rw": "Ntabwo, kuko kugaragara bidashoboka"
+        },
+        "isCorrect": true
+      },
+      {
+        "text": {
+          "en": "Only at night",
+          "fr": "Uniquement la nuit",
+          "rw": "Gusa nijoro"
+        },
+        "isCorrect": false
+      }
+    ],
+    "explanation": {
+      "en": "Overtaking on hills is prohibited because you cannot see oncoming traffic.",
+      "fr": "Le dépassement en côte est interdit, vous ne voyez pas le trafic venant en sens inverse.",
+      "rw": "Gusubiranira ku gasozi birabujijwe kuko udashobora kubona imodoka ziza."
+    }
+  },
+  {
+    "id": "eq9",
+    "question": {
+      "en": "What should you do when approaching a pedestrian crossing?",
+      "fr": "Que faire en approchant d'un passage piétons?",
+      "rw": "Ugomba gukora iki ukegereye inzira y'abagenda n'amaguru?"
+    },
+    "options": [
+      {
+        "text": {
+          "en": "Speed up",
+          "fr": "Accélérer",
+          "rw": "Yongera umuvuduko"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Sound horn",
+          "fr": "Klaxonner",
+          "rw": "Kika inzoga"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Slow down and be prepared to stop",
+          "fr": "Ralentir et être prêt à s'arrêter",
+          "rw": "Gabanya umuvuduko kandi witegure guhagarara"
+        },
+        "isCorrect": true
+      },
+      {
+        "text": {
+          "en": "Flash lights",
+          "fr": "Faire clignoter les phares",
+          "rw": "Kinga amatara"
+        },
+        "isCorrect": false
+      }
+    ],
+    "explanation": {
+      "en": "Always slow down near pedestrian crossings and be ready to stop for pedestrians.",
+      "fr": "Toujours ralentir aux passages piétons et être prêt à s'arrêter.",
+      "rw": "Gabanya igihe cyose umuvuduko hafi y'inzira y'abagenda n'amaguru kandi witegure guhagarara."
+    }
+  },
+  {
+    "id": "eq10",
+    "question": {
+      "en": "What does a flashing red traffic light mean?",
+      "fr": "Que signifie un feu rouge clignotant?",
+      "rw": "Itara agahundo akingagira bisobanura iki?"
+    },
+    "options": [
+      {
+        "text": {
+          "en": "Proceed with caution",
+          "fr": "Procéder avec prudence",
+          "rw": "Genda maso"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Stop completely, then proceed when safe",
+          "fr": "Arrêter complètement, puis avancer quand c'est sûr",
+          "rw": "Hagarara burundu, hanyuma ujye imbere iyo hahagaze"
+        },
+        "isCorrect": true
+      },
+      {
+        "text": {
+          "en": "Go quickly",
+          "fr": "Aller vite",
+          "rw": "Genda vuba"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Yield to oncoming traffic",
+          "fr": "Céder la priorité",
+          "rw": "Tanga inzira"
+        },
+        "isCorrect": false
+      }
+    ],
+    "explanation": {
+      "en": "A flashing red light means treat it like a STOP sign.",
+      "fr": "Un feu rouge clignotant se traite comme un panneau STOP.",
+      "rw": "Itara agahundo akingagira bugiriye nk'ikimenyetso HAGARARA."
+    }
+  },
+  {
+    "id": "eq11",
+    "question": {
+      "en": "When driving at night, switch to low beam when an oncoming vehicle is within:",
+      "fr": "La nuit, passer en feux de croisement à quelle distance d'un véhicule?",
+      "rw": "Gutwara nijoro, hindura amatara y'amajyepfo iyo imodoka iri mu ntera ya:"
+    },
+    "options": [
+      {
+        "text": {
+          "en": "50 meters",
+          "fr": "50 mètres",
+          "rw": "Metero 50"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "100 meters",
+          "fr": "100 mètres",
+          "rw": "Metero 100"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "150 meters",
+          "fr": "150 mètres",
+          "rw": "Metero 150"
+        },
+        "isCorrect": true
+      },
+      {
+        "text": {
+          "en": "200 meters",
+          "fr": "200 mètres",
+          "rw": "Metero 200"
+        },
+        "isCorrect": false
+      }
+    ],
+    "explanation": {
+      "en": "Switch to low beam when an oncoming vehicle is within 150 meters.",
+      "fr": "Passer en feux de croisement à moins de 150 mètres d'un véhicule.",
+      "rw": "Hindura amatara y'amajyepfo iyo imodoka iri mu metero 150."
+    }
+  },
+  {
+    "id": "eq12",
+    "question": {
+      "en": "What is the highway speed limit in Rwanda?",
+      "fr": "Quelle est la limite sur autoroute au Rwanda?",
+      "rw": "Umuvuduko ngemwe ku muhanda munini mu Rwanda ni uw'ingahe?"
+    },
+    "options": [
+      {
+        "text": {
+          "en": "60 km/h",
+          "fr": "60 km/h",
+          "rw": "60 km/h"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "100 km/h",
+          "fr": "100 km/h",
+          "rw": "100 km/h"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "80 km/h",
+          "fr": "80 km/h",
+          "rw": "80 km/h"
+        },
+        "isCorrect": true
+      },
+      {
+        "text": {
+          "en": "120 km/h",
+          "fr": "120 km/h",
+          "rw": "120 km/h"
+        },
+        "isCorrect": false
+      }
+    ],
+    "explanation": {
+      "en": "The highway speed limit in Rwanda is 80 km/h.",
+      "fr": "La limite sur autoroute au Rwanda est 80 km/h.",
+      "rw": "Umuvuduko ngemwe ku muhanda munini mu Rwanda ni 80 km/h."
+    }
+  },
+  {
+    "id": "eq13",
+    "question": {
+      "en": "When must you signal before turning or changing lanes?",
+      "fr": "Quand doit-on signaler avant de tourner ou changer de voie?",
+      "rw": "Ni ryari ugomba gutanga ikimenyetso mbere yo guhinduka cyangwa guhindura inzira?"
+    },
+    "options": [
+      {
+        "text": {
+          "en": "Only when other cars are present",
+          "fr": "Seulement quand d'autres voitures sont présentes",
+          "rw": "Gusa iyo hari izindi modoka"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Only on highways",
+          "fr": "Seulement sur autoroute",
+          "rw": "Gusa ku mihanda minini"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Always, regardless of traffic",
+          "fr": "Toujours, peu importe le trafic",
+          "rw": "Igihe cyose, bitirengagizwa n'makipe"
+        },
+        "isCorrect": true
+      },
+      {
+        "text": {
+          "en": "Only at night",
+          "fr": "Seulement la nuit",
+          "rw": "Gusa nijoro"
+        },
+        "isCorrect": false
+      }
+    ],
+    "explanation": {
+      "en": "You must always signal before turning or changing lanes, regardless of traffic conditions.",
+      "fr": "Vous devez toujours signaler avant de tourner, peu importe le trafic.",
+      "rw": "Ugomba igihe cyose gutanga ikimenyetso mbere yo guhinduka, bitirengagizwa n'makipe."
+    }
+  },
+  {
+    "id": "eq14",
+    "question": {
+      "en": "When is it mandatory to wear a seatbelt?",
+      "fr": "Quand est-il obligatoire de porter la ceinture?",
+      "rw": "Ni ryari byangombwa guambara umupira w'iturufu?"
+    },
+    "options": [
+      {
+        "text": {
+          "en": "Only on highways",
+          "fr": "Seulement sur autoroute",
+          "rw": "Gusa ku mihanda minini"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Only front seats",
+          "fr": "Seulement sièges avant",
+          "rw": "Gusa intebe z'imbere"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Always, in all seats",
+          "fr": "Toujours, tous les sièges",
+          "rw": "Igihe cyose, intebe zose"
+        },
+        "isCorrect": true
+      },
+      {
+        "text": {
+          "en": "Only in cities",
+          "fr": "Seulement en ville",
+          "rw": "Gusa mu mujyi"
+        },
+        "isCorrect": false
+      }
+    ],
+    "explanation": {
+      "en": "Seatbelts are mandatory for all occupants in all seats at all times.",
+      "fr": "Les ceintures sont obligatoires pour tous les passagers à tout moment.",
+      "rw": "Imipira y'iturufu ni ngombwa ku baranguye bose mu ntebe zose igihe cyose."
+    }
+  },
+  {
+    "id": "eq15",
+    "question": {
+      "en": "What should you do if your vehicle breaks down on a road?",
+      "fr": "Que faire si votre véhicule tombe en panne sur la route?",
+      "rw": "Ugomba gukora iki nk'imodoka yawe yapfuye ku nzira?"
+    },
+    "options": [
+      {
+        "text": {
+          "en": "Leave it and walk away",
+          "fr": "Partir à pied",
+          "rw": "Sohoka maze ujye aho ujya"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Place warning triangle behind the vehicle",
+          "fr": "Placer un triangle de signalisation derrière",
+          "rw": "Shyira izitrangle ry'ikimenyetso inyuma y'imodoka"
+        },
+        "isCorrect": true
+      },
+      {
+        "text": {
+          "en": "Sound horn continuously",
+          "fr": "Klaxonner en continu",
+          "rw": "Shyiraho inzoga igihe cyose"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Just call for help",
+          "fr": "Appeler uniquement à l'aide",
+          "rw": "Vuga gusa ngo bakugire"
+        },
+        "isCorrect": false
+      }
+    ],
+    "explanation": {
+      "en": "Place a warning triangle at a safe distance behind the vehicle to warn other road users.",
+      "fr": "Placer un triangle de signalisation derrière le véhicule pour avertir les autres usagers.",
+      "rw": "Shyira izitrangle ry'ikimenyetso ku ntera nyabukuru inyuma y'imodoka kugira ngo utangirize abandi bari mu nzira."
+    }
+  },
+  {
+    "id": "eq16",
+    "question": {
+      "en": "Vehicles at an intersection without signs must yield to:",
+      "fr": "Sans panneaux à une intersection, céder la priorité à:",
+      "rw": "Ku isinyoro ridafite ibimenyetso, tanga inzira:"
+    },
+    "options": [
+      {
+        "text": {
+          "en": "Larger vehicles",
+          "fr": "Véhicules plus grands",
+          "rw": "Imodoka nini"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Vehicle on the left",
+          "fr": "Véhicule de gauche",
+          "rw": "Imodoka ibumoso"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Vehicle on the right",
+          "fr": "Véhicule de droite",
+          "rw": "Imodoka iburyo"
+        },
+        "isCorrect": true
+      },
+      {
+        "text": {
+          "en": "First vehicle to arrive",
+          "fr": "Premier arrivé",
+          "rw": "Imodoka yabanjirije"
+        },
+        "isCorrect": false
+      }
+    ],
+    "explanation": {
+      "en": "At uncontrolled intersections, give way to vehicles coming from your right.",
+      "fr": "Aux intersections non réglementées, céder la priorité aux véhicules venant de droite.",
+      "rw": "Ku bisinyoro bidafite ibimenyetso, tanga inzira ku modoka ituruka iburyo."
+    }
+  },
+  {
+    "id": "eq17",
+    "question": {
+      "en": "When must you not use your phone while driving?",
+      "fr": "Quand ne doit-on pas utiliser son téléphone en conduisant?",
+      "rw": "Ni ryari ntibyemewe gutuura telefone mu gutwara?"
+    },
+    "options": [
+      {
+        "text": {
+          "en": "Only at night",
+          "fr": "Seulement la nuit",
+          "rw": "Gusa nijoro"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Only on highways",
+          "fr": "Seulement sur autoroute",
+          "rw": "Gusa ku mihanda minini"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Never, unless hands-free",
+          "fr": "Jamais, sauf kit mains-libres",
+          "rw": "Ntabwo, keretse uhandi-free"
+        },
+        "isCorrect": true
+      },
+      {
+        "text": {
+          "en": "Only in heavy traffic",
+          "fr": "Seulement dans les embouteillages",
+          "rw": "Gusa mu makipe manini"
+        },
+        "isCorrect": false
+      }
+    ],
+    "explanation": {
+      "en": "Using a handheld phone while driving is prohibited at all times. Only hands-free devices are allowed.",
+      "fr": "L'utilisation d'un téléphone tenu en main est interdite à tout moment. Seuls les dispositifs mains-libres sont autorisés.",
+      "rw": "Gutuura telefone mu gutwara birabujijwe igihe cyose. Gusa ibikoresho by'uhandi-free byemewe."
+    }
+  },
+  {
+    "id": "eq18",
+    "question": {
+      "en": "What is the minimum following distance in foggy conditions?",
+      "fr": "Quelle est la distance minimale par temps de brouillard?",
+      "rw": "Intera ntarengwa nyabukuru mu bwatsi ni iyihe?"
+    },
+    "options": [
+      {
+        "text": {
+          "en": "Same as normal",
+          "fr": "Identique à la normale",
+          "rw": "Nk'isanzwe"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Double the normal distance",
+          "fr": "Doubler la distance normale",
+          "rw": "Kabiri y'intera isanzwe"
+        },
+        "isCorrect": true
+      },
+      {
+        "text": {
+          "en": "No minimum required",
+          "fr": "Aucun minimum requis",
+          "rw": "Nta ntarengwa ibuze"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Triple the normal distance",
+          "fr": "Tripler la distance normale",
+          "rw": "Gatatu y'intera isanzwe"
+        },
+        "isCorrect": false
+      }
+    ],
+    "explanation": {
+      "en": "In foggy conditions, double your normal following distance as visibility and braking distances are greatly reduced.",
+      "fr": "Par brouillard, doubler la distance normale car la visibilité et les distances de freinage sont réduites.",
+      "rw": "Mu bwatsi, kongera intera isanzwe kabiri kuko kugaragara no guhagarara bigezeho cyane."
+    }
+  },
+  {
+    "id": "eq19",
+    "question": {
+      "en": "What does \"Give Way\" sign indicate?",
+      "fr": "Que signifie le panneau \"Cédez le passage\"?",
+      "rw": "Ikimenyetso cy'Urugero cyo \"Tanga Inzira\" cyavuga iki?"
+    },
+    "options": [
+      {
+        "text": {
+          "en": "Stop completely",
+          "fr": "Arrêt complet",
+          "rw": "Hagarara burundu"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Proceed normally",
+          "fr": "Continuer normalement",
+          "rw": "Genda nk'isanzwe"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Yield to other traffic",
+          "fr": "Céder la priorité",
+          "rw": "Tanga inzira ku bandi bari mu nzira"
+        },
+        "isCorrect": true
+      },
+      {
+        "text": {
+          "en": "Park here",
+          "fr": "Se garer ici",
+          "rw": "Hagarara hano"
+        },
+        "isCorrect": false
+      }
+    ],
+    "explanation": {
+      "en": "The Give Way sign means you must slow down and yield to any traffic on the major road before proceeding.",
+      "fr": "Le panneau Cédez le passage signifie ralentir et céder la priorité au trafic sur la route principale.",
+      "rw": "Ikimenyetso cy'Urugero bisobanura ko ugomba kugabanya umuvuduko no gutanga inzira ku bari mu nzira minini."
+    }
+  },
+  {
+    "id": "eq20",
+    "question": {
+      "en": "What does a yellow traffic light mean?",
+      "fr": "Que signifie un feu jaune?",
+      "rw": "Itara umuhondo bisobanura iki?"
+    },
+    "options": [
+      {
+        "text": {
+          "en": "Speed up to clear the intersection",
+          "fr": "Accélérer pour passer",
+          "rw": "Yongera umuvuduko kugira ngo ubashe gusohoka"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Prepare to stop — red is about to show",
+          "fr": "Se préparer à s'arrêter — le rouge arrive",
+          "rw": "Witegure guhagarara — agahundo ari hafi"
+        },
+        "isCorrect": true
+      },
+      {
+        "text": {
+          "en": "Same as green — go",
+          "fr": "Comme le vert — avancer",
+          "rw": "Kimwe n'icyatsi — genda"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Pedestrians crossing",
+          "fr": "Piétons traversant",
+          "rw": "Abagenda n'amaguru barengera"
+        },
+        "isCorrect": false
+      }
+    ],
+    "explanation": {
+      "en": "Yellow/amber means slow down and prepare to stop, as red is about to show. Do not speed up.",
+      "fr": "Jaune/orange signifie ralentir et se préparer à s'arrêter, le rouge arrive. Ne pas accélérer.",
+      "rw": "Umuhondo bisobanura kugabanya umuvuduko no witegura guhagarara, kuko agahundo ari hafi. Ntikongereze umuvuduko."
+    }
+  },
+  {
+    "id": "eq21",
+    "question": {
+      "en": "What is the speed limit in school zones in Rwanda?",
+      "fr": "Quelle est la limite de vitesse en zone scolaire au Rwanda?",
+      "rw": "Umuvuduko ngemwe mu karere k'ishuri mu Rwanda ni uw'ingahe?"
+    },
+    "options": [
+      {
+        "text": {
+          "en": "50 km/h",
+          "fr": "50 km/h",
+          "rw": "50 km/h"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "40 km/h",
+          "fr": "40 km/h",
+          "rw": "40 km/h"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "30 km/h",
+          "fr": "30 km/h",
+          "rw": "30 km/h"
+        },
+        "isCorrect": true
+      },
+      {
+        "text": {
+          "en": "20 km/h",
+          "fr": "20 km/h",
+          "rw": "20 km/h"
+        },
+        "isCorrect": false
+      }
+    ],
+    "explanation": {
+      "en": "The speed limit in school zones is 30 km/h to protect children.",
+      "fr": "La limite de vitesse en zone scolaire est 30 km/h pour protéger les enfants.",
+      "rw": "Umuvuduko ngemwe mu karere k'ishuri ni 30 km/h kugira ngo turinde abana."
+    }
+  },
+  {
+    "id": "eq22",
+    "question": {
+      "en": "Always yield to emergency vehicles with sirens because:",
+      "fr": "Toujours céder aux véhicules d'urgence car:",
+      "rw": "Tanga igihe cyose inzira ku modoka z'inzobere zifite inzoga kuko:"
+    },
+    "options": [
+      {
+        "text": {
+          "en": "They are bigger",
+          "fr": "Ils sont plus grands",
+          "rw": "Ni nini"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "They are responding to life-threatening emergencies",
+          "fr": "Ils répondent à des urgences vitales",
+          "rw": "Biterwa n'ihuriro ry'akaga k'ubuzima"
+        },
+        "isCorrect": true
+      },
+      {
+        "text": {
+          "en": "It is polite",
+          "fr": "C'est poli",
+          "rw": "Ni ingeso nziza"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "They are faster",
+          "fr": "Ils sont plus rapides",
+          "rw": "Ni vuba"
+        },
+        "isCorrect": false
+      }
+    ],
+    "explanation": {
+      "en": "Emergency vehicles respond to life-threatening situations. Every second counts, so you must always yield.",
+      "fr": "Les véhicules d'urgence interviennent dans des situations vitales. Chaque seconde compte.",
+      "rw": "Imodoka z'inzobere ziterwa n'ihuriro ry'akaga k'ubuzima. Buri sekunde igira akamaro, bityo ugomba igihe cyose gutanga inzira."
+    }
+  },
+  {
+    "id": "eq23",
+    "question": {
+      "en": "How should you position your vehicle when stopping at a red light?",
+      "fr": "Comment positionner votre véhicule à un feu rouge?",
+      "rw": "Ugomba guhagaza bute imodoka yawe igihe haguranye ku tara agahundo?"
+    },
+    "options": [
+      {
+        "text": {
+          "en": "As far into the intersection as possible",
+          "fr": "Aussi loin dans l'intersection que possible",
+          "rw": "Kure guhagije mu isinyoro"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Behind the stop line",
+          "fr": "Derrière la ligne d'arrêt",
+          "rw": "Inyuma y'umurongo wo guhagarara"
+        },
+        "isCorrect": true
+      },
+      {
+        "text": {
+          "en": "In the middle of the intersection",
+          "fr": "Au milieu de l'intersection",
+          "rw": "Hagati y'isinyoro"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "On the right-hand side only",
+          "fr": "Côté droit seulement",
+          "rw": "Iburyo gusa"
+        },
+        "isCorrect": false
+      }
+    ],
+    "explanation": {
+      "en": "You must stop behind the stop line, which is marked on the road at traffic lights.",
+      "fr": "Vous devez vous arrêter derrière la ligne d'arrêt marquée sur la chaussée aux feux.",
+      "rw": "Ugomba guhagarara inyuma y'umurongo wo guhagarara, wanditswe ku nzira ku matara."
+    }
+  },
+  {
+    "id": "eq24",
+    "question": {
+      "en": "What is the correct safe overtaking procedure (first step)?",
+      "fr": "Quelle est la première étape d'un dépassement sûr?",
+      "rw": "Ni iyihe ntambwe ya mbere isanzwe mu gusubiranira neza?"
+    },
+    "options": [
+      {
+        "text": {
+          "en": "Signal and immediately move out",
+          "fr": "Signaler et bouger immédiatement",
+          "rw": "Tanga ikimenyetso hanyuma ujye imbere vuba"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Honk the horn first",
+          "fr": "Klaxonner d'abord",
+          "rw": "Kika inzoga mbere"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Check mirrors and blind spots",
+          "fr": "Vérifier rétroviseurs et angles morts",
+          "rw": "Reba amatara y'inyuma no ku mpande bidashobora kugaragara"
+        },
+        "isCorrect": true
+      },
+      {
+        "text": {
+          "en": "Increase speed first",
+          "fr": "Accélérer d'abord",
+          "rw": "Yongera umuvuduko mbere"
+        },
+        "isCorrect": false
+      }
+    ],
+    "explanation": {
+      "en": "Before overtaking, first check your mirrors and blind spots to ensure the road is clear and safe.",
+      "fr": "Avant de dépasser, vérifiez d'abord vos rétroviseurs et angles morts pour vous assurer que c'est sûr.",
+      "rw": "Mbere yo gusubiranira, banza urebe amatara y'inyuma no ku mpande bidashobora kugaragara kugira ngo umenye ko inzira itunganye."
+    }
+  },
+  {
+    "id": "eq25",
+    "question": {
+      "en": "In Rwanda, on which side of the road do you overtake?",
+      "fr": "Au Rwanda, de quel côté dépasse-t-on?",
+      "rw": "Mu Rwanda, gusubiranira bikorwa ku ruhande ruhana?"
+    },
+    "options": [
+      {
+        "text": {
+          "en": "Left side",
+          "fr": "Côté gauche",
+          "rw": "Ibumoso"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Right side",
+          "fr": "Côté droit",
+          "rw": "Iburyo"
+        },
+        "isCorrect": true
+      },
+      {
+        "text": {
+          "en": "Either side",
+          "fr": "N'importe quel côté",
+          "rw": "Mu ruhande urwo ari rwo rwose"
+        },
+        "isCorrect": false
+      },
+      {
+        "text": {
+          "en": "Only on highways",
+          "fr": "Seulement sur autoroute",
+          "rw": "Gusa ku mihanda minini"
+        },
+        "isCorrect": false
+      }
+    ],
+    "explanation": {
+      "en": "In Rwanda, vehicles drive on the right side of the road, so overtaking is done on the right (passing the slower vehicle on its left side).",
+      "fr": "Au Rwanda, on roule à droite, donc le dépassement se fait en dépassant par la gauche du véhicule lent.",
+      "rw": "Mu Rwanda, imodoka zigenda iburyo bw'inzira, bityo gusubiranira bikorwa iburyo (ushira inyuma imodoka igenda buhoro imbumoso yayo)."
+    }
+  }
+]

@@ -1,0 +1,755 @@
+[
+  {
+    "id": "rs1",
+    "categoryId": "road-signs",
+    "order": 1,
+    "duration": 5,
+    "icon": "alert-circle",
+    "title": {
+      "en": "Warning Signs",
+      "fr": "Panneaux d'Avertissement",
+      "rw": "Ibimenyetso by'Akaga"
+    },
+    "content": {
+      "en": "Warning signs alert drivers to hazards ahead. In Rwanda, most warning signs are triangular with a red border and white background.\n\n**Common Warning Signs:**\n\n🔺 **Dangerous Curve** — A curved arrow indicating a sharp bend in the road ahead. Reduce speed significantly.\n\n🔺 **Road Narrows** — The road ahead becomes narrower. Move toward the center and slow down.\n\n🔺 **School Zone** — Children may be crossing. Reduce speed to 30 km/h and watch carefully.\n\n🔺 **Animal Crossing** — Wildlife or livestock may be on the road. Proceed slowly and be prepared to stop.\n\n🔺 **Speed Bump** — A raised section of road ahead. Slow down to avoid vehicle damage.\n\n🔺 **Slippery Road** — Road surface may be slippery, especially when wet. Reduce speed and avoid sudden braking.\n\n**Key Rule:** When you see a warning sign, reduce your speed and be prepared for the hazard it describes.",
+      "fr": "Les panneaux d'avertissement alertent les conducteurs des dangers à venir. Au Rwanda, la plupart des panneaux d'avertissement sont triangulaires avec un bord rouge et un fond blanc.\n\n**Panneaux courants:**\n\n🔺 **Virage dangereux** — Flèche courbe indiquant un virage serré. Réduisez considérablement la vitesse.\n\n🔺 **Rétrécissement de route** — La route devient plus étroite. Approchez-vous du centre et ralentissez.\n\n🔺 **Zone scolaire** — Des enfants peuvent traverser. Réduisez la vitesse à 30 km/h.\n\n🔺 **Passage d'animaux** — Des animaux peuvent être sur la route. Roulez lentement.\n\n🔺 **Dos d'âne** — Section surélevée de la route. Ralentissez pour éviter d'endommager le véhicule.\n\n🔺 **Route glissante** — La surface peut être glissante. Réduisez la vitesse.\n\n**Règle clé:** Face à un panneau d'avertissement, réduisez votre vitesse.",
+      "rw": "Ibimenyetso by'akaga bitangariza abashoferi ibyago biri imbere. Mu Rwanda, ibimenyetso by'akaga bisanzwe ni izitrangle zifite umupaka utukura n'inzizi yera.\n\n**Ibimenyetso Bisanzwe:**\n\n🔺 **Aho Inzira Ihindukira** — Umwotsi wengana ugaragaza ihinduka ry'inzira. Gabanya umuvuduko.\n\n🔺 **Inzira Igabanuka** — Inzira igabanuka imbere. Jinya kuri hagati no kugabanya umuvuduko.\n\n🔺 **Akarere k'Ishuri** — Abana bashobora kujya muri inzira. Gabanya umuvuduko kugeza 30 km/h.\n\n🔺 **Aho Amatungo Asanzura** — Amatungo ashobora kuba mu nzira. Genda buhoro kandi witegure guhagarara.\n\n🔺 **Gahinga mu Nzira** — Igice cyizamye cy'inzira. Gabanya umuvuduko.\n\n🔺 **Inzira Irindwa** — Inzira irashobora kuba idashira neza. Gabanya umuvuduko.\n\n**Itegeko Ry'Ibanze:** Iyo ubonye ikimenyetso cy'akaga, gabanya umuvuduko kandi witegure ibyago bikigaragazwa."
+    },
+    "questions": [
+      {
+        "id": "rs1-q1",
+        "question": {
+          "en": "What shape are warning signs in Rwanda?",
+          "fr": "Quelle forme ont les panneaux d'avertissement au Rwanda?",
+          "rw": "Ibimenyetso by'akaga bifite isura irihe mu Rwanda?"
+        },
+        "options": [
+          {
+            "text": {
+              "en": "Circle with red border",
+              "fr": "Cercle avec bord rouge",
+              "rw": "Umuzingo ufite umupaka utukura"
+            },
+            "isCorrect": false
+          },
+          {
+            "text": {
+              "en": "Triangle with red border",
+              "fr": "Triangle avec bord rouge",
+              "rw": "Izitrangle ifite umupaka utukura"
+            },
+            "isCorrect": true
+          },
+          {
+            "text": {
+              "en": "Rectangle with blue background",
+              "fr": "Rectangle avec fond bleu",
+              "rw": "Inderuguye ifite inzizi y'ubururu"
+            },
+            "isCorrect": false
+          },
+          {
+            "text": {
+              "en": "Diamond with yellow border",
+              "fr": "Losange avec bord jaune",
+              "rw": "Lisangi ifite umupaka w'umuhondo"
+            },
+            "isCorrect": false
+          }
+        ],
+        "explanation": {
+          "en": "Warning signs in Rwanda are triangular with a red border and white background, alerting drivers to potential hazards ahead.",
+          "fr": "Les panneaux d'avertissement au Rwanda sont triangulaires avec un bord rouge et un fond blanc.",
+          "rw": "Ibimenyetso by'akaga mu Rwanda ni izitrangle zifite umupaka utukura n'inzizi yera."
+        }
+      },
+      {
+        "id": "rs1-q2",
+        "question": {
+          "en": "What should you do when you see a school zone sign?",
+          "fr": "Que faire quand vous voyez un panneau zone scolaire?",
+          "rw": "Ugomba gukora iki iyo ubonye ikimenyetso cy'akarere k'ishuri?"
+        },
+        "options": [
+          {
+            "text": {
+              "en": "Maintain normal speed",
+              "fr": "Maintenir la vitesse normale",
+              "rw": "Komeza umuvuduko usanzwe"
+            },
+            "isCorrect": false
+          },
+          {
+            "text": {
+              "en": "Sound your horn",
+              "fr": "Klaxonner",
+              "rw": "Kika inzoga"
+            },
+            "isCorrect": false
+          },
+          {
+            "text": {
+              "en": "Reduce speed to 30 km/h and watch for children",
+              "fr": "Réduire à 30 km/h et surveiller les enfants",
+              "rw": "Gabanya umuvuduko kugeza 30 km/h kandi witegereze abana"
+            },
+            "isCorrect": true
+          },
+          {
+            "text": {
+              "en": "Stop completely",
+              "fr": "S'arrêter complètement",
+              "rw": "Hagarara burundu"
+            },
+            "isCorrect": false
+          }
+        ],
+        "explanation": {
+          "en": "School zones require you to reduce speed to 30 km/h and be vigilant for children who may be crossing the road.",
+          "fr": "Les zones scolaires exigent de réduire la vitesse à 30 km/h et d'être vigilant pour les enfants.",
+          "rw": "Akarere k'ishuri gusaba kugabanya umuvuduko kugeza 30 km/h no kuba maso kubijyanye n'abana."
+        }
+      }
+    ],
+    "premiumOnly": false,
+    "published": true
+  },
+  {
+    "id": "rs2",
+    "categoryId": "road-signs",
+    "order": 2,
+    "duration": 6,
+    "icon": "stop-circle",
+    "title": {
+      "en": "Regulatory Signs",
+      "fr": "Panneaux Réglementaires",
+      "rw": "Ibimenyetso bya Ngombwa"
+    },
+    "content": {
+      "en": "Regulatory signs must be obeyed at all times. They are either circular (prohibitions/obligations) or octagonal (STOP).\n\n**Prohibition Signs (Red Circle):**\n\n🔴 **Speed Limit** — White circle, red border, number inside. You must not exceed this speed.\n\n🔴 **No Overtaking** — Two cars, one red. Overtaking is strictly forbidden in this section.\n\n🔴 **No Entry** — Red circle with white horizontal bar. You cannot enter this road.\n\n🔴 **No Parking** — Blue circle, red diagonal. Do not park here.\n\n**Obligation Signs (Blue Circle):**\n\n🔵 **Straight Ahead Only** — White arrow pointing up. You must go straight.\n\n🔵 **Turn Right/Left** — Arrow indicating direction. You must turn in that direction.\n\n**The STOP Sign:**\nEight-sided red sign. You must come to a complete stop and check all directions before proceeding.\n\n**The Give Way Sign:**\nInverted triangle. You must yield to traffic on the main road.",
+      "fr": "Les panneaux réglementaires doivent être respectés en tout temps. Ils sont soit circulaires, soit octogonaux (STOP).\n\n**Panneaux d'interdiction (Cercle rouge):**\n\n🔴 **Limitation de vitesse** — Cercle blanc, bord rouge, chiffre. Ne pas dépasser cette vitesse.\n\n🔴 **Interdiction de dépasser** — Deux voitures. Le dépassement est strictement interdit.\n\n🔴 **Sens interdit** — Cercle rouge, barre blanche. Entrée interdite.\n\n🔴 **Stationnement interdit** — Cercle bleu, diagonale rouge.\n\n**Panneaux d'obligation (Cercle bleu):**\n\n🔵 **Tout droit** — Flèche blanche vers le haut. Vous devez aller tout droit.\n\n🔵 **Tourner** — Flèche. Vous devez tourner dans cette direction.\n\n**Le panneau STOP:**\nPanneau rouge octogonal. Arrêt complet obligatoire.\n\n**Le panneau Cédez le passage:**\nTriangle inversé. Céder la priorité.",
+      "rw": "Ibimenyetso bya ngombwa bigomba gukurikizwa igihe cyose. Ni imizingo (ibitegwa/inshingwa) cyangwa umunane (HAGARARA).\n\n**Ibimenyetso by'Ibitegwa (Umuzingo Utukura):**\n\n🔴 **Umuvuduko Ngemwe** — Umuzingo wera, umupaka utukura, inomero. Ntugomba kurenza umuvuduko uwo.\n\n🔴 **Ntimugusubiranira** — Imodoka ebyiri. Gusubiranira birabujijwe.\n\n🔴 **Ntimuinjira** — Umuzingo utukura, inkoni yera. Ntushobora kwinjira muri iyo nzira.\n\n🔴 **Ntimuhagarara** — Umuzingo w'ubururu, umurongo utukura.\n\n**Ibimenyetso by'Inshingwa (Umuzingo w'Ubururu):**\n\n🔵 **Komeza Mbere** — Umwotsi weru ujya hejuru. Ugomba kujya mbere.\n\n🔵 **Hinduka** — Umwotsi ugaragaza inzira. Ugomba guhinduka.\n\n**Ikimenyetso HAGARARA:**\nIkimenyetso gitukura kifite inzira umunani. Ugomba guhagarara burundu.\n\n**Ikimenyetso cy'Urugero:**\nIzitrangle iyindukiye. Ugomba gutanga inzira."
+    },
+    "questions": [
+      {
+        "id": "rs2-q1",
+        "question": {
+          "en": "What must you do at a STOP sign?",
+          "fr": "Que devez-vous faire à un panneau STOP?",
+          "rw": "Ugomba gukora iki ku kimenyetso HAGARARA?"
+        },
+        "options": [
+          {
+            "text": {
+              "en": "Slow down and check",
+              "fr": "Ralentir et vérifier",
+              "rw": "Gabanya no kureba"
+            },
+            "isCorrect": false
+          },
+          {
+            "text": {
+              "en": "Come to a complete stop, then proceed when safe",
+              "fr": "S'arrêter complètement, puis avancer en sécurité",
+              "rw": "Hagarara burundu, hanyuma ugire imbere iyo hahagaze"
+            },
+            "isCorrect": true
+          },
+          {
+            "text": {
+              "en": "Sound horn and proceed",
+              "fr": "Klaxonner et continuer",
+              "rw": "Kika inzoga hanyuma ujye imbere"
+            },
+            "isCorrect": false
+          },
+          {
+            "text": {
+              "en": "Flash headlights and go",
+              "fr": "Faire clignoter les phares et partir",
+              "rw": "Kinga amatara maze ujye imbere"
+            },
+            "isCorrect": false
+          }
+        ],
+        "explanation": {
+          "en": "At a STOP sign, you must bring your vehicle to a complete standstill, then proceed only when it is safe to do so.",
+          "fr": "À un panneau STOP, vous devez arrêter complètement votre véhicule, puis avancer uniquement quand c'est sûr.",
+          "rw": "Ku kimenyetso HAGARARA, ugomba guhagarara burundu, hanyuma ujye imbere gusa iyo hahagaze."
+        }
+      },
+      {
+        "id": "rs2-q2",
+        "question": {
+          "en": "What color are obligation/mandatory signs?",
+          "fr": "Quelle est la couleur des panneaux d'obligation?",
+          "rw": "Ibimenyetso by'inshingwa bifite ibara rikihe?"
+        },
+        "options": [
+          {
+            "text": {
+              "en": "Red",
+              "fr": "Rouge",
+              "rw": "Agahundo"
+            },
+            "isCorrect": false
+          },
+          {
+            "text": {
+              "en": "Yellow",
+              "fr": "Jaune",
+              "rw": "Umuhondo"
+            },
+            "isCorrect": false
+          },
+          {
+            "text": {
+              "en": "Blue",
+              "fr": "Bleu",
+              "rw": "Ubururu"
+            },
+            "isCorrect": true
+          },
+          {
+            "text": {
+              "en": "Green",
+              "fr": "Vert",
+              "rw": "Icyatsi"
+            },
+            "isCorrect": false
+          }
+        ],
+        "explanation": {
+          "en": "Obligation signs (mandatory directions or actions) use blue circular backgrounds with white symbols.",
+          "fr": "Les panneaux d'obligation utilisent des fonds circulaires bleus avec des symboles blancs.",
+          "rw": "Ibimenyetso by'inshingwa bikoresha inzizi y'ubururu irunana y'umuzingo ufite ibimenyetso byera."
+        }
+      }
+    ],
+    "premiumOnly": false,
+    "published": true
+  },
+  {
+    "id": "rs3",
+    "categoryId": "road-signs",
+    "order": 3,
+    "duration": 4,
+    "icon": "information-circle",
+    "title": {
+      "en": "Informative Signs",
+      "fr": "Panneaux Informatifs",
+      "rw": "Ibimenyetso by'Amakuru"
+    },
+    "content": {
+      "en": "Informative signs provide guidance, directions, and useful information to road users.\n\n**Types of Informative Signs:**\n\n🔷 **Direction Signs** — Blue or green rectangles showing destinations, distances, and routes.\n\n🔷 **Service Signs** — Brown rectangles indicating nearby services: hospitals, gas stations, restaurants, hotels.\n\n🔷 **Road Marking Signs** — Arrows on the road surface showing lanes and directions.\n\n**Road Markings:**\n- **Solid White Line** — Do not cross this line (lane boundary)\n- **Broken White Line** — You may change lanes when safe\n- **Solid Yellow Line** — No overtaking, no crossing\n- **Broken Yellow Line** — Overtaking permitted with care\n- **Double Yellow Lines** — No overtaking in either direction\n- **Pedestrian Crossing (Zebra)** — White stripes: always give way to pedestrians\n\n**Key Rule:** Informative signs are there to help you. Following them ensures you reach your destination safely and efficiently.",
+      "fr": "Les panneaux informatifs fournissent des indications et des informations utiles aux usagers de la route.\n\n**Types de panneaux informatifs:**\n\n🔷 **Panneaux de direction** — Rectangles bleus ou verts montrant les destinations et distances.\n\n🔷 **Panneaux de service** — Rectangles marron indiquant les services à proximité.\n\n🔷 **Marquages routiers** — Flèches sur la chaussée indiquant les voies.\n\n**Marquages:**\n- **Ligne blanche continue** — Ne pas franchir\n- **Ligne blanche discontinue** — Changement de voie autorisé\n- **Ligne jaune continue** — Interdiction de dépasser\n- **Ligne jaune discontinue** — Dépassement avec précaution\n- **Double ligne jaune** — Pas de dépassement dans les deux sens\n- **Passage piétons** — Toujours céder le passage\n\n**Règle clé:** Les panneaux informatifs vous aident. Suivez-les pour arriver à destination en sécurité.",
+      "rw": "Ibimenyetso by'amakuru bitanga ubunyobozi, inzira, n'amakuru y'ingenzi ku bantu bajya mu nzira.\n\n**Ubwoko bw'Ibimenyetso by'Amakuru:**\n\n🔷 **Ibimenyetso by'Inzira** — Inderuguye z'ubururu cyangwa icyatsi zigaragaza aho ujya, intera, n'inzira.\n\n🔷 **Ibimenyetso by'Serivisi** — Inderuguye z'ikijeli zigaragaza serivisi hafi: ibitaro, sitasiyo ya peteroli, resitora, hoteli.\n\n**Imirongo y'Inzira:**\n- **Umurongo wera Uzima** — Ntuzajye hejuru y'uyu murongo\n- **Umurongo wera Ugabagabanyije** — Ushobora guhindura inzira iyo bituje\n- **Umurongo w'umuhondo Uzima** — Ntimugusubiranira, ntuzajye hejuru\n- **Umurongo w'umuhondo Ugabagabanyije** — Gusubiranira byemewe waba maso\n- **Imirongo ebyiri y'umuhondo** — Ntimugusubiranira mu mpande zombi\n- **Inzira y'Abagenda n'Amaguru** — Imirongo yera: tanga inzira ku bagenda n'amaguru\n\n**Itegeko Ry'Ibanze:** Ibimenyetso by'amakuru bigufasha. Bikurikiza kugira ngo ugere aho ujya mu mutekano."
+    },
+    "questions": [
+      {
+        "id": "rs3-q1",
+        "question": {
+          "en": "What does a solid yellow center line mean?",
+          "fr": "Que signifie une ligne jaune continue au centre?",
+          "rw": "Umurongo w'umuhondo uzima hagati bisobanura iki?"
+        },
+        "options": [
+          {
+            "text": {
+              "en": "Overtaking is permitted",
+              "fr": "Le dépassement est permis",
+              "rw": "Gusubiranira byemewe"
+            },
+            "isCorrect": false
+          },
+          {
+            "text": {
+              "en": "No overtaking allowed",
+              "fr": "Dépassement interdit",
+              "rw": "Gusubiranira birabujijwe"
+            },
+            "isCorrect": true
+          },
+          {
+            "text": {
+              "en": "Road is closed",
+              "fr": "Route fermée",
+              "rw": "Inzira ifunzwe"
+            },
+            "isCorrect": false
+          },
+          {
+            "text": {
+              "en": "High speed zone",
+              "fr": "Zone de haute vitesse",
+              "rw": "Akarere k'umuvuduko mwinshi"
+            },
+            "isCorrect": false
+          }
+        ],
+        "explanation": {
+          "en": "A solid yellow center line means no overtaking is allowed. You must not cross this line to pass other vehicles.",
+          "fr": "Une ligne jaune continue au centre signifie que le dépassement est interdit.",
+          "rw": "Umurongo w'umuhondo uzima hagati bisobanura ko gusubiranira birabujijwe."
+        }
+      }
+    ],
+    "premiumOnly": false,
+    "published": true
+  },
+  {
+    "id": "tr1",
+    "categoryId": "traffic-rules",
+    "order": 1,
+    "duration": 5,
+    "icon": "speedometer",
+    "title": {
+      "en": "Speed Limits",
+      "fr": "Limites de Vitesse",
+      "rw": "Umuvuduko Ngemwe"
+    },
+    "content": {
+      "en": "Speed limits in Rwanda are strictly enforced. Always observe posted speed limit signs.\n\n**Rwanda Speed Limits:**\n\n🚗 **Urban/City Areas** — Maximum **50 km/h**. This applies within towns and cities unless otherwise posted.\n\n🛣️ **Highways & Main Roads** — Maximum **80 km/h** on standard highways.\n\n🏫 **School Zones** — Maximum **30 km/h** during school hours.\n\n🏥 **Hospital Zones** — Maximum **30 km/h** at all times.\n\n🌧️ **Adverse Conditions** — Always reduce speed in rain, fog, or on slippery roads.\n\n**When to Reduce Speed:**\n- Approaching intersections\n- Near pedestrian crossings\n- In heavy traffic\n- At night\n- In school or hospital zones\n- When visibility is reduced\n\n**Penalties:** Speeding violations carry heavy fines and license points in Rwanda. Police use speed cameras on major routes.\n\n**Key Rule:** The posted speed limit is the MAXIMUM — always drive at a speed safe for conditions.",
+      "fr": "Les limites de vitesse au Rwanda sont strictement appliquées.\n\n**Limites de vitesse au Rwanda:**\n\n🚗 **Zones urbaines** — Maximum **50 km/h** dans les villes.\n\n🛣️ **Autoroutes** — Maximum **80 km/h**.\n\n🏫 **Zones scolaires** — Maximum **30 km/h**.\n\n🏥 **Zones hospitalières** — Maximum **30 km/h** en permanence.\n\n🌧️ **Conditions défavorables** — Réduire toujours la vitesse sous la pluie, le brouillard.\n\n**Quand réduire la vitesse:**\n- Aux intersections\n- Aux passages piétons\n- Dans la circulation dense\n- La nuit\n- En zone scolaire ou hospitalière\n\n**Sanctions:** Les excès de vitesse entraînent de lourdes amendes.\n\n**Règle clé:** La limite est le MAXIMUM — conduisez toujours à une vitesse adaptée.",
+      "rw": "Umuvuduko ngemwe mu Rwanda ukurikizwa cyane. Ikiganiro kijyanye n'ibimenyetso by'umuvuduko by'ibanze.\n\n**Umuvuduko Ngemwe mu Rwanda:**\n\n🚗 **Mu Mujyi** — Ntirenze **50 km/h**. Iki gikurikizwa mu miji cyose.\n\n🛣️ **Imihanda Minini** — Ntirenze **80 km/h** ku mihanda minini.\n\n🏫 **Akarere k'Ishuri** — Ntirenze **30 km/h** mu gihe cy'ishuri.\n\n🏥 **Akarere k'Ibitaro** — Ntirenze **30 km/h** igihe cyose.\n\n🌧️ **Igihe Bigoye** — Gabanya umuvuduko igihe cy'imvura, ubwatsi, cyangwa inzira zirindwa.\n\n**Igihe cyo Kugabanya Umuvuduko:**\n- Ukegereye isinyoro\n- Hafi y'inzira y'abagenda n'amaguru\n- Mu makipe manini\n- Nijoro\n- Mu karere k'ishuri cyangwa ibitaro\n- Igihe kugaragara bidashoboka\n\n**Ihazabu:** Gusimburana amategeko y'umuvuduko bivuga ihazabu nini.\n\n**Itegeko Ry'Ibanze:** Umuvuduko ngemwe ni NTARENGWA — genda ku muvuduko mwiza ku bihe."
+    },
+    "questions": [
+      {
+        "id": "tr1-q1",
+        "question": {
+          "en": "What is the speed limit in urban areas in Rwanda?",
+          "fr": "Quelle est la limite de vitesse en zone urbaine au Rwanda?",
+          "rw": "Umuvuduko ngemwe mu mujyi mu Rwanda ni uw'ingahe?"
+        },
+        "options": [
+          {
+            "text": {
+              "en": "30 km/h",
+              "fr": "30 km/h",
+              "rw": "30 km/h"
+            },
+            "isCorrect": false
+          },
+          {
+            "text": {
+              "en": "80 km/h",
+              "fr": "80 km/h",
+              "rw": "80 km/h"
+            },
+            "isCorrect": false
+          },
+          {
+            "text": {
+              "en": "50 km/h",
+              "fr": "50 km/h",
+              "rw": "50 km/h"
+            },
+            "isCorrect": true
+          },
+          {
+            "text": {
+              "en": "100 km/h",
+              "fr": "100 km/h",
+              "rw": "100 km/h"
+            },
+            "isCorrect": false
+          }
+        ],
+        "explanation": {
+          "en": "The speed limit in urban/city areas in Rwanda is 50 km/h unless a different speed limit sign is posted.",
+          "fr": "La limite de vitesse en zone urbaine au Rwanda est de 50 km/h sauf indication contraire.",
+          "rw": "Umuvuduko ngemwe mu mujyi mu Rwanda ni 50 km/h keretse ikimenyetso cy'umuvuduko gitandukanye kibonetse."
+        }
+      },
+      {
+        "id": "tr1-q2",
+        "question": {
+          "en": "What is the highway speed limit in Rwanda?",
+          "fr": "Quelle est la limite de vitesse sur les autoroutes au Rwanda?",
+          "rw": "Umuvuduko ngemwe ku muhanda munini mu Rwanda ni uw'ingahe?"
+        },
+        "options": [
+          {
+            "text": {
+              "en": "50 km/h",
+              "fr": "50 km/h",
+              "rw": "50 km/h"
+            },
+            "isCorrect": false
+          },
+          {
+            "text": {
+              "en": "80 km/h",
+              "fr": "80 km/h",
+              "rw": "80 km/h"
+            },
+            "isCorrect": true
+          },
+          {
+            "text": {
+              "en": "100 km/h",
+              "fr": "100 km/h",
+              "rw": "100 km/h"
+            },
+            "isCorrect": false
+          },
+          {
+            "text": {
+              "en": "120 km/h",
+              "fr": "120 km/h",
+              "rw": "120 km/h"
+            },
+            "isCorrect": false
+          }
+        ],
+        "explanation": {
+          "en": "The maximum speed limit on highways in Rwanda is 80 km/h.",
+          "fr": "La limite de vitesse maximale sur les autoroutes au Rwanda est de 80 km/h.",
+          "rw": "Umuvuduko ngemwe ku mihanda minini mu Rwanda ni 80 km/h."
+        }
+      }
+    ],
+    "premiumOnly": false,
+    "published": true
+  },
+  {
+    "id": "tr2",
+    "categoryId": "traffic-rules",
+    "order": 2,
+    "duration": 6,
+    "icon": "git-branch",
+    "title": {
+      "en": "Right of Way",
+      "fr": "Priorité de Passage",
+      "rw": "Uburenganzira bwo Gutunga Inzira"
+    },
+    "content": {
+      "en": "Right of way rules determine who goes first at intersections and other road situations.\n\n**At Intersections:**\n- Give way to vehicles on your right (when no signs present)\n- Traffic on main roads has priority over side roads\n- Vehicles already in a roundabout have right of way\n\n**Roundabouts:**\n- Give way to traffic already circulating inside the roundabout\n- Signal when entering and exiting\n- Travel counterclockwise (in Rwanda: clockwise)\n\n**Pedestrian Crossings:**\n- Always give way to pedestrians at marked crossings\n- Never park on or near a pedestrian crossing\n- Pedestrians have absolute priority at zebra crossings\n\n**Emergency Vehicles:**\n- Always yield to ambulances, police, and fire trucks with sirens/lights\n- Pull to the left side of the road\n- Do not follow an emergency vehicle through a red light\n\n**Specific Situations:**\n- **T-Intersections:** Traffic on the continuing road has priority\n- **School Buses:** Stop when a school bus is loading/unloading with lights flashing\n- **Railway Crossings:** Always stop when barriers are down or lights flash",
+      "fr": "Les règles de priorité déterminent qui passe en premier aux intersections.\n\n**Aux intersections:**\n- Céder la priorité aux véhicules venant de droite (sans panneaux)\n- Les routes principales ont la priorité\n- Les véhicules déjà dans un rond-point ont la priorité\n\n**Ronds-points:**\n- Céder la priorité aux véhicules circulant déjà\n- Signaler l'entrée et la sortie\n\n**Passages piétons:**\n- Toujours céder la priorité aux piétons\n- Ne jamais stationner sur un passage piéton\n\n**Véhicules d'urgence:**\n- Toujours céder aux ambulances, police, pompiers\n- Se rabattre à gauche\n\n**Situations spécifiques:**\n- Intersections en T: priorité à la route continue\n- Bus scolaires: s'arrêter lors du chargement\n- Passages à niveau: s'arrêter obligatoirement",
+      "rw": "Amategeko y'uburenganzira bwo gutunga inzira ateganya uwo uje mbere ku bisinyoro.\n\n**Ku Bisinyoro:**\n- Tanga inzira ku modoka ituruka iburyo (iyo nta bimenyetso)\n- Imihanda minini ifite uburenganzira hejuru y'imihanda mito\n- Imodoka ziri mu lizire zifite uburenganzira bwo gutunga\n\n**Ama-Roundabout:**\n- Tanga inzira ku modoka zikizunguruka mu lizire\n- Tanga ikimenyetso iyo winjira no gusohoka\n- Genda mu nzira y'akanguko\n\n**Inzira y'Abagenda n'Amaguru:**\n- Tanga igihe cyose inzira ku bagenda n'amaguru ku nzira zanditswe\n- Ntukagaragaze cyangwa guhagarara ku nzira y'abagenda n'amaguru\n- Abagenda n'amaguru bafite uburenganzira busesuye ku nzira ya zebra\n\n**Imodoka za Ngombwa:**\n- Tanga inzira igihe cyose ku butaka, polisi, n'imitwaro y'inkongi y'umuriro ifite inzoga/amatara\n- Jinya imbere y'igice cy'ibumoso cy'inzira\n\n**Ibihe Bisobanutse:**\n- **Isinyoro rya T:** Inzira ikomeza ifite uburenganzira\n- **Bisi y'Ishuri:** Hagarara iyo bisi y'ishuri yuzura abana ifite amatara akinga\n- **Aho Inzira Irindukira:** Hagarara igihe ibibaho biri hasi cyangwa amatara akingagira"
+    },
+    "questions": [
+      {
+        "id": "tr2-q1",
+        "question": {
+          "en": "At a roundabout, who has the right of way?",
+          "fr": "Dans un rond-point, qui a la priorité?",
+          "rw": "Mu lizire, nde ufite uburenganzira bwo gutunga inzira?"
+        },
+        "options": [
+          {
+            "text": {
+              "en": "Vehicles entering the roundabout",
+              "fr": "Véhicules entrant dans le rond-point",
+              "rw": "Imodoka zinjira mu lizire"
+            },
+            "isCorrect": false
+          },
+          {
+            "text": {
+              "en": "The largest vehicle",
+              "fr": "Le plus grand véhicule",
+              "rw": "Imodoka nini"
+            },
+            "isCorrect": false
+          },
+          {
+            "text": {
+              "en": "Vehicles already in the roundabout",
+              "fr": "Véhicules déjà dans le rond-point",
+              "rw": "Imodoka ziri mu lizire"
+            },
+            "isCorrect": true
+          },
+          {
+            "text": {
+              "en": "The vehicle on the right",
+              "fr": "Le véhicule de droite",
+              "rw": "Imodoka iburyo"
+            },
+            "isCorrect": false
+          }
+        ],
+        "explanation": {
+          "en": "Vehicles already circulating inside the roundabout have the right of way. Entering vehicles must yield.",
+          "fr": "Les véhicules circulant déjà dans le rond-point ont la priorité. Les véhicules entrant doivent céder.",
+          "rw": "Imodoka ziri mu lizire zifite uburenganzira. Imodoka zinjira zigomba gutanga inzira."
+        }
+      }
+    ],
+    "premiumOnly": false,
+    "published": true
+  },
+  {
+    "id": "tr3",
+    "categoryId": "traffic-rules",
+    "order": 3,
+    "duration": 4,
+    "icon": "radio-button-on",
+    "title": {
+      "en": "Traffic Lights",
+      "fr": "Feux de Circulation",
+      "rw": "Amatara y'Umuhanda"
+    },
+    "content": {
+      "en": "Traffic lights control the flow of vehicles at intersections. Always obey them.\n\n**Standard Traffic Light Colors:**\n\n🔴 **Red** — STOP. You must stop completely before the stop line. Do not enter the intersection.\n\n🟡 **Yellow/Amber** — PREPARE TO STOP. Slow down, as red is about to show. Do not speed up to \"beat the light.\"\n\n🟢 **Green** — GO. Proceed with caution after checking the intersection is clear.\n\n**Special Signals:**\n\n➡️ **Green Arrow** — You may turn in the direction of the arrow, even if the main light is red. Yield to pedestrians and oncoming traffic.\n\n🔴 **Flashing Red** — Treat as a STOP sign: stop completely, then proceed when safe.\n\n🟡 **Flashing Yellow/Amber** — Treat as a WARNING: slow down and proceed with caution.\n\n**Key Rules:**\n- Never run a red light — heavy fines and serious danger\n- Yellow means slow down, NOT speed up\n- When power is out, treat intersection as a 4-way STOP\n- Always stop before the stop line, not beyond it",
+      "fr": "Les feux de circulation contrôlent le flux des véhicules aux intersections.\n\n**Couleurs standard:**\n\n🔴 **Rouge** — ARRÊT obligatoire avant la ligne d'arrêt.\n\n🟡 **Jaune** — Préparation à l'arrêt. Ralentir.\n\n🟢 **Vert** — AVANCER avec prudence.\n\n**Signaux spéciaux:**\n\n➡️ **Flèche verte** — Tourner dans la direction indiquée.\n\n🔴 **Rouge clignotant** — Traiter comme un STOP.\n\n🟡 **Jaune clignotant** — Ralentir et procéder avec précaution.\n\n**Règles clés:**\n- Ne jamais griller un feu rouge\n- Jaune = ralentir, pas accélérer\n- Panne de courant = intersection en 4 STOP",
+      "rw": "Amatara y'umuhanda agenzura inyururu y'imodoka ku bisinyoro. Uyakurikize igihe cyose.\n\n**Ibara ry'Amatara y'Umuhanda:**\n\n🔴 **Agahundo** — HAGARARA. Hagarara burundu mbere y'umurongo wo guhagarara. Ntinjire mu isinyoro.\n\n🟡 **Umuhondo** — WITEGURE GUHAGARARA. Gabanya umuvuduko kuko agahundo ari hafi. Ntiyongere umuvuduko.\n\n🟢 **Icyatsi** — GENDA. Genda maso nyuma yo kureba ko isinyoro rifunguye.\n\n**Ibimenyetso Bidasanzwe:**\n\n➡️ **Umwotsi w'Icyatsi** — Ushobora guhinduka mu mpande y'umwotsi, n'iyo itara rinini ari agahundo. Tanga inzira ku bagenda n'amaguru.\n\n🔴 **Agahundo Akingagira** — Bugiriye nk'ikimenyetso HAGARARA: hagarara burundu, hanyuma ugire imbere iyo hahagaze.\n\n🟡 **Umuhondo Ukingagira** — Bugiriye nk'IBURYO: gabanya umuvuduko kandi uje mbere maso.\n\n**Amategeko y'Ibanze:**\n- Ntukajye hejuru y'itara agahundo — ihazabu nini n'akaga gakomeye\n- Umuhondo bisobanura kugabanya umuvuduko, SI ukongera\n- Iyo amashanyarazi adapfa, bugiriye isinyoro nk'ibya STOP ine\n- Hagarara imbere y'umurongo wo guhagarara, si hejuru yawo"
+    },
+    "questions": [
+      {
+        "id": "tr3-q1",
+        "question": {
+          "en": "What does a flashing red traffic light mean?",
+          "fr": "Que signifie un feu rouge clignotant?",
+          "rw": "Itara agahundo akingagira bisobanura iki?"
+        },
+        "options": [
+          {
+            "text": {
+              "en": "Proceed with caution",
+              "fr": "Procéder avec précaution",
+              "rw": "Genda maso"
+            },
+            "isCorrect": false
+          },
+          {
+            "text": {
+              "en": "Stop completely, then proceed when safe",
+              "fr": "S'arrêter, puis avancer quand c'est sûr",
+              "rw": "Hagarara burundu, hanyuma ujye imbere iyo hahagaze"
+            },
+            "isCorrect": true
+          },
+          {
+            "text": {
+              "en": "Go quickly",
+              "fr": "Aller vite",
+              "rw": "Genda vuba"
+            },
+            "isCorrect": false
+          },
+          {
+            "text": {
+              "en": "Yield to oncoming traffic",
+              "fr": "Céder la priorité",
+              "rw": "Tanga inzira"
+            },
+            "isCorrect": false
+          }
+        ],
+        "explanation": {
+          "en": "A flashing red light should be treated like a STOP sign: come to a complete stop and proceed only when it is safe.",
+          "fr": "Un feu rouge clignotant doit être traité comme un panneau STOP: arrêt complet puis avancer quand c'est sûr.",
+          "rw": "Itara agahundo akingagira bugiriye nk'ikimenyetso HAGARARA: hagarara burundu hanyuma ujye imbere iyo hahagaze."
+        }
+      }
+    ],
+    "premiumOnly": false,
+    "published": true
+  },
+  {
+    "id": "db1",
+    "categoryId": "driving-behavior",
+    "order": 1,
+    "duration": 5,
+    "icon": "resize",
+    "title": {
+      "en": "Safe Following Distance",
+      "fr": "Distance de Sécurité",
+      "rw": "Intera Nyabukuru"
+    },
+    "content": {
+      "en": "Maintaining a safe following distance is one of the most important aspects of safe driving.\n\n**The 2-Second Rule:**\nChoose a fixed point (sign, tree, mark on road). When the vehicle ahead passes it, count \"one-thousand-one, one-thousand-two.\" If you reach the point before finishing, you're too close.\n\n**Adjust for Conditions:**\n- **Wet roads** → 4-second rule (double)\n- **Fog/low visibility** → 6+ second rule\n- **Heavy loads/trucks** → 4+ seconds\n- **Night driving** → at least 3-4 seconds\n\n**Stopping Distances at Different Speeds:**\n- 50 km/h: ~25 meters total stopping distance\n- 80 km/h: ~60 meters total stopping distance\n- 100 km/h: ~100 meters total stopping distance\n\n**Why It Matters:**\n- Reaction time (average 1.5 seconds) + braking time\n- In emergencies, you need space to stop safely\n- Tailgating is a leading cause of rear-end collisions\n\n**Signs You're Too Close:**\n- You can't see the road ahead of the vehicle in front\n- You can't see the vehicle's full back end\n- You feel rushed or anxious about the vehicle ahead",
+      "fr": "Maintenir une distance de sécurité est essentiel pour une conduite sûre.\n\n**La règle des 2 secondes:**\nChoisissez un point fixe. Quand le véhicule devant passe, comptez \"un-mille-un, un-mille-deux\". Si vous atteignez le point avant, vous êtes trop près.\n\n**Ajustements:**\n- Routes mouillées → 4 secondes\n- Brouillard → 6+ secondes\n- Charges lourdes → 4+ secondes\n- Conduite de nuit → 3-4 secondes\n\n**Distances de freinage:**\n- 50 km/h: ~25 mètres\n- 80 km/h: ~60 mètres\n- 100 km/h: ~100 mètres\n\n**Pourquoi c'est important:**\n- Temps de réaction + temps de freinage\n- En urgence, vous avez besoin d'espace\n- La conduite collée est une cause majeure d'accidents",
+      "rw": "Gufata intera nyabukuru ni kimwe mu bintu by'ingenzi cyane mu gutwara imodoka.\n\n**Itegeko rya Iminota 2:**\nHitamo ahantu hatagirika (ikimenyetso, igiti, ikimenyetso ku nzira). Imodoka iri imbere iyo yashize ku hantu, bara \"umwe-igihumbi-kimwe, ebyiri-igihumbi-kimwe\". Niba ugeze ku hantu mbere yo kurangiza, uri hafi cyane.\n\n**Hindura ku bihe:**\n- Inzira ziheye → Itegeko rya 4 iminota (kabiri)\n- Ubwatsi/kutatagana — 6+ iminota\n- Imizigo miremire — 4+ iminota\n- Gutwara nijoro → nibura 3-4 iminota\n\n**Intera zo Guhagarara ku Mivuduko Itandukanye:**\n- 50 km/h: ~metero 25 zo guhagarara hose\n- 80 km/h: ~metero 60 zo guhagarara hose\n- 100 km/h: ~metero 100 zo guhagarara hose\n\n**Impamvu Bikorwa:**\n- Igihe cyo gusubiza (imbonera 1.5) + igihe cyo guhagarara\n- Mu bihe bigoye, ukeneye aho uhagarara neza\n- Kugendana hafi ni impamvu nkuru y'ibyurupfu"
+    },
+    "questions": [
+      {
+        "id": "db1-q1",
+        "question": {
+          "en": "The 2-second rule refers to:",
+          "fr": "La règle des 2 secondes fait référence à:",
+          "rw": "Itegeko rya iminota 2 rivuga:"
+        },
+        "options": [
+          {
+            "text": {
+              "en": "How long to check mirrors",
+              "fr": "Durée de vérification des rétroviseurs",
+              "rw": "Igihe cyo kureba amatara y'inyuma"
+            },
+            "isCorrect": false
+          },
+          {
+            "text": {
+              "en": "Minimum safe following distance",
+              "fr": "Distance minimale de sécurité",
+              "rw": "Intera ntarengwa nyabukuru"
+            },
+            "isCorrect": true
+          },
+          {
+            "text": {
+              "en": "Time needed to signal a turn",
+              "fr": "Temps de signalisation",
+              "rw": "Igihe cyo gutanga ikimenyetso"
+            },
+            "isCorrect": false
+          },
+          {
+            "text": {
+              "en": "Duration to stop at a stop sign",
+              "fr": "Durée à un stop",
+              "rw": "Igihe cy'igihagararo"
+            },
+            "isCorrect": false
+          }
+        ],
+        "explanation": {
+          "en": "The 2-second rule is a method to maintain a safe following distance. You should always be at least 2 seconds behind the vehicle in front.",
+          "fr": "La règle des 2 secondes est une méthode pour maintenir une distance de sécurité suffisante.",
+          "rw": "Itegeko rya iminota 2 ni uburyo bwo gufata intera nyabukuru. Ugomba igihe cyose kuba nibura iminota 2 inyuma y'imodoka iri imbere."
+        }
+      }
+    ],
+    "premiumOnly": false,
+    "published": true
+  },
+  {
+    "id": "db2",
+    "categoryId": "driving-behavior",
+    "order": 2,
+    "duration": 5,
+    "icon": "swap-horizontal",
+    "title": {
+      "en": "Overtaking Rules",
+      "fr": "Règles de Dépassement",
+      "rw": "Amategeko yo Gusimburana"
+    },
+    "content": {
+      "en": "Overtaking is one of the most dangerous maneuvers. Always follow these rules strictly.\n\n**When Overtaking is Prohibited:**\n- When there is a solid yellow center line\n- On hills where visibility ahead is limited\n- Near intersections and junctions\n- At pedestrian crossings\n- Near the crest of a hill\n- In tunnels or narrow bridges\n- In school zones\n\n**Safe Overtaking Procedure:**\n1. Check your mirrors (rear and side)\n2. Signal your intention (left/right blinker)\n3. Check blind spots\n4. Ensure there is sufficient clear road ahead\n5. Accelerate smoothly and overtake\n6. Signal when returning to your lane\n7. Ensure adequate space before moving back\n8. Cancel your signal\n\n**Key Rules:**\n- Never overtake on a bend\n- Always overtake on the right (in Rwanda)\n- Flash headlights once to signal your intention\n- Do not exceed speed limit while overtaking\n- The overtaken vehicle should not speed up",
+      "fr": "Le dépassement est l'une des manœuvres les plus dangereuses.\n\n**Quand le dépassement est interdit:**\n- Ligne jaune continue\n- En côte avec visibilité limitée\n- Aux intersections\n- Aux passages piétons\n- En sommet de côte\n- Dans les tunnels\n- Zones scolaires\n\n**Procédure de dépassement sûr:**\n1. Vérifier les rétroviseurs\n2. Signaler l'intention\n3. Vérifier les angles morts\n4. S'assurer d'une route dégagée\n5. Accélérer doucement\n6. Signaler le retour en voie\n7. Annuler le signal\n\n**Règles clés:**\n- Jamais dans un virage\n- Toujours dépasser à droite\n- Ne pas dépasser la limite de vitesse",
+      "rw": "Gusubiranira ni kimwe mu bikorwa bitwara akaga. Uyunge aya mategeko ateganye.\n\n**Iyo Gusubiranira Birabujijwe:**\n- Iyo hari umurongo w'umuhondo uzima\n- Ku gasozi aho kugaragara imbere bidashoboka\n- Hafi y'ibisinyoro\n- Ku nzira y'abagenda n'amaguru\n- Hafi y'isonga ry'akarimbi\n- Mu mashimo y'inzira cyangwa inkombe nto\n- Mu karere k'ishuri\n\n**Inzira Nyabukuru yo Gusubiranira:**\n1. Reba amatara y'inyuma (inyuma no ku mpande)\n2. Tanga ikimenyetso cy'icyo ugamije (umurongo w'ibumoso/iburyo)\n3. Reba ahantu bidashobora kugaragara\n4. Menya ko inzira imbere itunganye bihagije\n5. Yongera umuvuduko neza maze ugire imbere\n6. Tanga ikimenyetso iyo usubira mu nzira yawe\n7. Menya ko hari intera ihagije mbere yo gusubira\n8. Kureka ikimenyetso\n\n**Amategeko y'Ibanze:**\n- Ntukajye imbere ku nyamabuye\n- Gerageza gusimburana iburyo (mu Rwanda)\n- Kinga amatara rimwe kugira ngo ugaragaze icyo ugamije\n- Ntirenze umuvuduko ngemwe mu gusubiranira\n- Imodoka yagusubiwemo ntikwiye kongera umuvuduko"
+    },
+    "questions": [
+      {
+        "id": "db2-q1",
+        "question": {
+          "en": "When may you overtake on a hill?",
+          "fr": "Quand peut-on dépasser sur une côte?",
+          "rw": "Ni ryari ushobora gusubiranira ku gasozi?"
+        },
+        "options": [
+          {
+            "text": {
+              "en": "Always",
+              "fr": "Toujours",
+              "rw": "Igihe cyose"
+            },
+            "isCorrect": false
+          },
+          {
+            "text": {
+              "en": "When you can see clearly ahead",
+              "fr": "Quand la visibilité est bonne",
+              "rw": "Iyo ubona neza imbere"
+            },
+            "isCorrect": false
+          },
+          {
+            "text": {
+              "en": "Never, as visibility is limited",
+              "fr": "Jamais, visibilité limitée",
+              "rw": "Ntabwo, kuko kugaragara bidashoboka"
+            },
+            "isCorrect": true
+          },
+          {
+            "text": {
+              "en": "Only at night",
+              "fr": "Uniquement la nuit",
+              "rw": "Gusa nijoro"
+            },
+            "isCorrect": false
+          }
+        ],
+        "explanation": {
+          "en": "Overtaking on hills is prohibited because you cannot see oncoming traffic, making it extremely dangerous.",
+          "fr": "Le dépassement en côte est interdit car vous ne pouvez pas voir le trafic venant en sens inverse.",
+          "rw": "Gusubiranira ku gasozi birabujijwe kuko udashobora kubona imodoka ziza mu ruhande ruhagije, bitera akaga gakomeye."
+        }
+      }
+    ],
+    "premiumOnly": false,
+    "published": true
+  },
+  {
+    "id": "db3",
+    "categoryId": "driving-behavior",
+    "order": 3,
+    "duration": 4,
+    "icon": "moon",
+    "title": {
+      "en": "Night Driving",
+      "fr": "Conduite de Nuit",
+      "rw": "Gutwara Nijoro"
+    },
+    "content": {
+      "en": "Night driving is significantly more dangerous than daytime driving. Extra precautions are essential.\n\n**Headlight Rules:**\n- Turn on headlights 30 minutes before sunset\n- Use low beam (dipped headlights) in urban areas and when meeting oncoming traffic\n- Use high beam only on unlit roads with no oncoming traffic\n- Switch to low beam when an oncoming vehicle is within 150 meters\n\n**Fatigue Awareness:**\n- Never drive when drowsy — it impairs reaction time as much as alcohol\n- Take a break every 2 hours on long trips\n- If you feel sleepy, pull over safely and rest\n- Avoid driving between 2 AM – 4 AM (peak drowsiness time)\n\n**Visibility Tips:**\n- Keep your windshield clean inside and out\n- Ensure all lights are working: headlights, taillights, brake lights\n- Watch for pedestrians wearing dark clothing\n- Animals on the road are harder to see at night\n\n**Reduced Speed:**\n- Reduce speed at night even if road is clear\n- Your stopping distance must not exceed your headlight range\n- Be extra cautious at dips and curves",
+      "fr": "La conduite de nuit est nettement plus dangereuse que de jour.\n\n**Règles d'éclairage:**\n- Allumer les phares 30 minutes avant le coucher du soleil\n- Feux de croisement en zone urbaine et face au trafic\n- Feux de route uniquement sur routes non éclairées\n- Passer en feux de croisement à moins de 150 mètres\n\n**Vigilance fatigue:**\n- Ne jamais conduire somnolent\n- Pause toutes les 2 heures\n- Si somnolence, s'arrêter et se reposer\n- Éviter de conduire entre 2h-4h du matin\n\n**Conseils de visibilité:**\n- Pare-brise propre\n- Tous les feux en état de marche\n- Attention aux piétons vêtus de sombre\n- Animaux plus difficiles à voir\n\n**Vitesse réduite:**\n- Réduire la vitesse la nuit\n- Distance d'arrêt < portée des phares",
+      "rw": "Gutwara nijoro bitwara akaga gakomeye kuruta gusanzwe. Ingamba z'inyongera ni ngombwa.\n\n**Amategeko y'Amatara:**\n- Fungura amatara iminota 30 mbere y'umugoroba\n- Koresha amatara y'amajyepfo mu mujyi no iyo uhura n'imodoka\n- Koresha amatara y'amajyaruguru gusa ku nzira zitaka amatara zidafite imodoka\n- Hindura amatara y'amajyepfo iyo imodoka iri mu nzira y'imbere iri mu metero 150\n\n**Kujya Maso Ibihe by'Uburuhe:**\n- Ntukajye gutwara iyo usinziriye — bitangaza igihe cyo gusubiza kimwe cyangwa cyarenze inzoga\n- Fata ikiruhuko buri masaha 2 ku nzira ndende\n- Niba usanze ukomeza gusinzira, hagarara mu mutekano maze uruhuke\n- Irinde gutwara hagati ya 2 AM – 4 AM (igihe cy'inzangano nyamukuru)\n\n**Amakuru yo Kubona Neza:**\n- Fata windishidi yawe neza imbere no hejuru\n- Menya amatara yose akora: amatara y'imbere, inyuma, no guhagarara\n- Witegereze abagenda n'amaguru bambaye impuzu z'umukara\n- Amatungo mu nzira aragorana kubona nijoro\n\n**Kugabanya Umuvuduko:**\n- Gabanya umuvuduko nijoro n'iyo inzira isa neza\n- Intera yawe yo guhagarara ntirenze ubucucike bw'amatara\n- Baho maso ku bisonga no ku nyamabuye"
+    },
+    "questions": [
+      {
+        "id": "db3-q1",
+        "question": {
+          "en": "When driving at night, you should switch to low beam headlights when:",
+          "fr": "La nuit, vous devez passer en feux de croisement quand:",
+          "rw": "Gutwara nijoro, ugomba guhindura amatara y'amajyepfo iyo:"
+        },
+        "options": [
+          {
+            "text": {
+              "en": "Driving in fog",
+              "fr": "En cas de brouillard",
+              "rw": "Gutwara mu bwatsi"
+            },
+            "isCorrect": false
+          },
+          {
+            "text": {
+              "en": "On the highway",
+              "fr": "Sur l'autoroute",
+              "rw": "Ku muhanda munini"
+            },
+            "isCorrect": false
+          },
+          {
+            "text": {
+              "en": "An oncoming vehicle approaches within 150m",
+              "fr": "Un véhicule venant en sens inverse à moins de 150m",
+              "rw": "Imodoka iri mu metero 150 iri imbere itera imbere"
+            },
+            "isCorrect": true
+          },
+          {
+            "text": {
+              "en": "It starts raining",
+              "fr": "Quand il pleut",
+              "rw": "Imvura itangira"
+            },
+            "isCorrect": false
+          }
+        ],
+        "explanation": {
+          "en": "Switch to low beam headlights when an oncoming vehicle is within 150 meters to avoid blinding the other driver.",
+          "fr": "Passer en feux de croisement quand un véhicule vient en sens inverse à moins de 150m pour ne pas l'éblouir.",
+          "rw": "Hindura amatara y'amajyepfo iyo imodoka iri mu metero 150 iri imbere itera imbere kugira ngo wite umushoferi."
+        }
+      }
+    ],
+    "premiumOnly": false,
+    "published": true
+  }
+]
