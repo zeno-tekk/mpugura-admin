@@ -58,6 +58,16 @@ export interface StudentProfile {
   updatedAt?: string | null;
 }
 
+export interface ExamQuestion {
+  id: string;
+  question: MultiLang;
+  options: QuestionOption[];
+  explanation: MultiLang;
+  categoryId?: string;
+  createdAt?: string | null;
+  updatedAt?: string | null;
+}
+
 export type PaymentStatus = 'completed' | 'failed' | 'pending';
 
 export interface PaymentRecord {

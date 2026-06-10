@@ -8,7 +8,8 @@ import {
   signOut,
   type User as FirebaseUser,
 } from 'firebase/auth';
-import { firebaseAuth, googleAuthProvider } from '@/lib/firebase';
+import { doc, serverTimestamp, setDoc } from 'firebase/firestore';
+import { firebaseAuth, firebaseDb, googleAuthProvider } from '@/lib/firebase';
 
 interface AuthUser {
   uid: string;
@@ -70,9 +71,25 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
 
       const nextUser = mapUser(firebaseUser);
+      const authorized = canAccessAdmin(nextUser.email);
       setUser(nextUser);
-      setIsAuthorized(canAccessAdmin(nextUser.email));
+      setIsAuthorized(authorized);
       setIsLoading(false);
+
+      // Persist the admin role to Firestore so security rules can verify it.
+      // This write is allowed by the `allow create/update: if isOwn(userId)` rule.
+      if (authorized) {
+        void setDoc(
+          doc(firebaseDb, 'users', firebaseUser.uid),
+          {
+            role: 'admin',
+            email: nextUser.email,
+            name: nextUser.name,
+            updatedAt: serverTimestamp(),
+          },
+          { merge: true },
+        );
+      }
     });
 
     return unsubscribe;

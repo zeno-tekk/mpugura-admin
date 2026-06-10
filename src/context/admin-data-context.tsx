@@ -13,15 +13,17 @@ import {
 } from 'firebase/firestore';
 import { firebaseDb } from '@/lib/firebase';
 import { useAuth } from '@/context/auth-context';
-import type { Category, Lesson, PaymentRecord, PaymentStatus, Question, StudentProfile } from '@/lib/types';
+import type { Category, ExamQuestion, Lesson, PaymentRecord, PaymentStatus, Question, StudentProfile } from '@/lib/types';
 
 type CategoryInput = Omit<Category, 'createdAt' | 'updatedAt'>;
 type LessonInput = Omit<Lesson, 'createdAt' | 'updatedAt'>;
+type ExamQuestionInput = Omit<ExamQuestion, 'createdAt' | 'updatedAt'>;
 type PaymentInput = Omit<PaymentRecord, 'id' | 'createdAt' | 'updatedAt' | 'paidAt'> & { id?: string; grantPremium?: boolean };
 
 interface AdminDataContextValue {
   categories: Category[];
   lessons: Lesson[];
+  examQuestions: ExamQuestion[];
   students: StudentProfile[];
   payments: PaymentRecord[];
   isLoading: boolean;
@@ -29,6 +31,9 @@ interface AdminDataContextValue {
   deleteCategory: (id: string) => Promise<void>;
   saveLesson: (lesson: LessonInput) => Promise<void>;
   deleteLesson: (id: string) => Promise<void>;
+  saveExamQuestion: (question: ExamQuestionInput) => Promise<void>;
+  deleteExamQuestion: (id: string) => Promise<void>;
+  importExamQuestions: (questions: ExamQuestionInput[]) => Promise<number>;
   savePayment: (payment: PaymentInput) => Promise<void>;
   deletePayment: (id: string) => Promise<void>;
   setStudentPremium: (userId: string, isPremium: boolean) => Promise<void>;
@@ -38,6 +43,7 @@ interface AdminDataContextValue {
 const AdminDataContext = createContext<AdminDataContextValue>({
   categories: [],
   lessons: [],
+  examQuestions: [],
   students: [],
   payments: [],
   isLoading: true,
@@ -45,6 +51,9 @@ const AdminDataContext = createContext<AdminDataContextValue>({
   deleteCategory: async () => {},
   saveLesson: async () => {},
   deleteLesson: async () => {},
+  saveExamQuestion: async () => {},
+  deleteExamQuestion: async () => {},
+  importExamQuestions: async () => 0,
   savePayment: async () => {},
   deletePayment: async () => {},
   setStudentPremium: async () => {},
@@ -97,6 +106,7 @@ export function AdminDataProvider({ children }: { children: ReactNode }) {
   const { user, isAuthorized } = useAuth();
   const [categories, setCategories] = useState<Category[]>([]);
   const [lessons, setLessons] = useState<Lesson[]>([]);
+  const [examQuestions, setExamQuestions] = useState<ExamQuestion[]>([]);
   const [students, setStudents] = useState<StudentProfile[]>([]);
   const [payments, setPayments] = useState<PaymentRecord[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -105,6 +115,7 @@ export function AdminDataProvider({ children }: { children: ReactNode }) {
     if (!user || !isAuthorized) {
       setCategories([]);
       setLessons([]);
+      setExamQuestions([]);
       setStudents([]);
       setPayments([]);
       setIsLoading(false);
@@ -116,7 +127,7 @@ export function AdminDataProvider({ children }: { children: ReactNode }) {
 
     const markReady = () => {
       readyCount += 1;
-      if (isMounted && readyCount >= 4) {
+      if (isMounted && readyCount >= 5) {
         setIsLoading(false);
       }
     };
@@ -168,6 +179,27 @@ export function AdminDataProvider({ children }: { children: ReactNode }) {
             updatedAt: timestampToIso(data.updatedAt),
           } satisfies Lesson;
         })));
+        markReady();
+      },
+      () => markReady()
+    );
+
+    const unsubscribeExamQuestions = onSnapshot(
+      collection(firebaseDb, 'examQuestions'),
+      (snapshot) => {
+        if (!isMounted) return;
+        setExamQuestions(snapshot.docs.map((item) => {
+          const data = item.data();
+          return {
+            id: item.id,
+            question: data.question ?? { en: '', fr: '', rw: '' },
+            options: Array.isArray(data.options) ? data.options : [],
+            explanation: data.explanation ?? { en: '', fr: '', rw: '' },
+            categoryId: data.categoryId ?? undefined,
+            createdAt: timestampToIso(data.createdAt),
+            updatedAt: timestampToIso(data.updatedAt),
+          } satisfies ExamQuestion;
+        }));
         markReady();
       },
       () => markReady()
@@ -229,6 +261,7 @@ export function AdminDataProvider({ children }: { children: ReactNode }) {
       isMounted = false;
       unsubscribeCategories();
       unsubscribeLessons();
+      unsubscribeExamQuestions();
       unsubscribeStudents();
       unsubscribePayments();
     };
@@ -284,6 +317,49 @@ export function AdminDataProvider({ children }: { children: ReactNode }) {
 
   const deleteLesson = async (id: string) => {
     await deleteDoc(doc(firebaseDb, 'lessons', id));
+  };
+
+  const saveExamQuestion = async (question: ExamQuestionInput) => {
+    const id = question.id.trim();
+    const isExisting = examQuestions.some((q) => q.id === id);
+    await setDoc(
+      doc(firebaseDb, 'examQuestions', id),
+      {
+        question: question.question,
+        options: question.options,
+        explanation: question.explanation,
+        ...(question.categoryId ? { categoryId: question.categoryId } : {}),
+        updatedAt: serverTimestamp(),
+        ...(isExisting ? {} : { createdAt: serverTimestamp() }),
+      },
+      { merge: true }
+    );
+  };
+
+  const deleteExamQuestion = async (id: string) => {
+    await deleteDoc(doc(firebaseDb, 'examQuestions', id));
+  };
+
+  const importExamQuestions = async (questions: ExamQuestionInput[]): Promise<number> => {
+    const batch = writeBatch(firebaseDb);
+    questions.forEach((question) => {
+      const id = question.id.trim();
+      const isExisting = examQuestions.some((q) => q.id === id);
+      batch.set(
+        doc(firebaseDb, 'examQuestions', id),
+        {
+          question: question.question,
+          options: question.options,
+          explanation: question.explanation,
+          ...(question.categoryId ? { categoryId: question.categoryId } : {}),
+          updatedAt: serverTimestamp(),
+          ...(isExisting ? {} : { createdAt: serverTimestamp() }),
+        },
+        { merge: true }
+      );
+    });
+    await batch.commit();
+    return questions.length;
   };
 
   const setStudentPremium = async (userId: string, isPremium: boolean) => {
@@ -399,6 +475,7 @@ export function AdminDataProvider({ children }: { children: ReactNode }) {
       value={{
         categories,
         lessons,
+        examQuestions,
         students,
         payments,
         isLoading,
@@ -406,6 +483,9 @@ export function AdminDataProvider({ children }: { children: ReactNode }) {
         deleteCategory,
         saveLesson,
         deleteLesson,
+        saveExamQuestion,
+        deleteExamQuestion,
+        importExamQuestions,
         savePayment,
         deletePayment,
         setStudentPremium,

@@ -1,6 +1,5 @@
-import { AdminApp } from '@/components/admin-app';
+import { redirect } from 'next/navigation';
 
 export default function Home() {
-  return <AdminApp />;
+  redirect('/dashboard');
 }
-
