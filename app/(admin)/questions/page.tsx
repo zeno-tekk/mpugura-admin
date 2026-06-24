@@ -1,8 +1,6 @@
 'use client';
 
 import React, { useRef, useState } from 'react';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 import { useAdminData } from '@/context/admin-data-context';
 import { cloneMultiLang } from '@/lib/utils';
 import type { ExamQuestion, MultiLang } from '@/lib/types';
