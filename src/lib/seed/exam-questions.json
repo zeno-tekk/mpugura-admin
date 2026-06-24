@@ -910,17 +910,17 @@
       },
       {
         "text": {
-          "en": "Prepare to stop — red is about to show",
-          "fr": "Se préparer à s'arrêter — le rouge arrive",
-          "rw": "Witegure guhagarara — agahundo ari hafi"
+          "en": "Prepare to stop - red is about to show",
+          "fr": "Se préparer à s'arrêter - le rouge arrive",
+          "rw": "Witegure guhagarara - agahundo ari hafi"
         },
         "isCorrect": true
       },
       {
         "text": {
-          "en": "Same as green — go",
-          "fr": "Comme le vert — avancer",
-          "rw": "Kimwe n'icyatsi — genda"
+          "en": "Same as green - go",
+          "fr": "Comme le vert - avancer",
+          "rw": "Kimwe n'icyatsi - genda"
         },
         "isCorrect": false
       },

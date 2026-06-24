@@ -9,6 +9,7 @@ export interface MultiLang {
 export interface QuestionOption {
   text: MultiLang;
   isCorrect: boolean;
+  imageUrl?: string;
 }
 
 export interface Question {
@@ -64,6 +65,7 @@ export interface ExamQuestion {
   options: QuestionOption[];
   explanation: MultiLang;
   categoryId?: string;
+  imageUrl?: string;
   createdAt?: string | null;
   updatedAt?: string | null;
 }

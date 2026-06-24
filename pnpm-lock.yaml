@@ -249,6 +249,27 @@ packages:
   '@firebase/webchannel-wrapper@1.0.5':
     resolution: {integrity: sha512-+uGNN7rkfn41HLO0vekTFhTxk61eKa8mTpRGLO0QSqlQdKvIoGAvLp3ppdVIWbTGYJWM6Kp0iN+PjMIOcnVqTw==}
 
+  '@floating-ui/core@1.7.5':
+    resolution: {integrity: sha512-1Ih4WTWyw0+lKyFMcBHGbb5U5FtuHJuujoyyr5zTaWS5EYMeT6Jb2AuDeftsCsEuchO+mM2ij5+q9crhydzLhQ==}
+
+  '@floating-ui/dom@1.7.6':
+    resolution: {integrity: sha512-9gZSAI5XM36880PPMm//9dfiEngYoC6Am2izES1FF406YFsjvyBMmeJ2g4SAju3xWwtuynNRFL2s9hgxpLI5SQ==}
+
+  '@floating-ui/react-dom@2.1.8':
+    resolution: {integrity: sha512-cC52bHwM/n/CxS87FH0yWdngEZrjdtLW/qVruo68qg+prK7ZQ4YGdut2GyDVpoGeAYe/h899rVeOVm6Oi40k2A==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+
+  '@floating-ui/react@0.27.19':
+    resolution: {integrity: sha512-31B8h5mm8YxotlE7/AU/PhNAl8eWxAmjL/v2QOxroDNkTFLk3Uu82u63N3b6TXa4EGJeeZLVcd/9AlNlVqzeog==}
+    peerDependencies:
+      react: '>=17.0.0'
+      react-dom: '>=17.0.0'
+
+  '@floating-ui/utils@0.2.11':
+    resolution: {integrity: sha512-RiB/yIh78pcIxl6lLMG0CgBXAZ2Y0eVHqMPYugu+9U0AeT6YBeiJpf7lbdJNIugFP5SIjwNRgo4DhR1Qxi26Gg==}
+
   '@grpc/grpc-js@1.9.15':
     resolution: {integrity: sha512-nqE7Hc0AzI+euzUwDAy0aY5hCp10r734gMGRdU+qOPX0XSceI2ULrcXB5U2xSc5VkWwalCj4M7GzCAygZl2KoQ==}
     engines: {node: ^8.13.0 || >=10.10.0}
@@ -482,6 +503,10 @@ packages:
   '@types/node@22.19.17':
     resolution: {integrity: sha512-wGdMcf+vPYM6jikpS/qhg6WiqSV/OhG+jeeHT/KlVqxYfD40iYJf9/AE1uQxVWFvU7MipKRkRv8NSHiCGgPr8Q==}
 
+  '@types/react-datepicker@7.0.0':
+    resolution: {integrity: sha512-4tWwOUq589tozyQPBVEqGNng5DaZkomx5IVNuur868yYdgjH6RaL373/HKiVt1IDoNNXYiTGspm1F7kjrarM8Q==}
+    deprecated: This is a stub types definition. react-datepicker provides its own type definitions, so you do not need this installed.
+
   '@types/react-dom@19.2.3':
     resolution: {integrity: sha512-jp2L/eY6fn+KgVVQAOqYItbF0VY/YApe5Mz2F0aykSO8gx31bYCZyvSeYxCHKvzHG5eZjc+zyaS5BrBWya2+kQ==}
     peerDependencies:
@@ -508,6 +533,10 @@ packages:
     resolution: {integrity: sha512-BSeNnyus75C4//NQ9gQt1/csTXyo/8Sb+afLAkzAptFuMsod9HFokGNudZpi/oQV73hnVK+sR+5PVRMd+Dr7YQ==}
     engines: {node: '>=12'}
 
+  clsx@2.1.1:
+    resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
+    engines: {node: '>=6'}
+
   color-convert@2.0.1:
     resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}
     engines: {node: '>=7.0.0'}
@@ -517,6 +546,9 @@ packages:
 
   csstype@3.2.3:
     resolution: {integrity: sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==}
+
+  date-fns@4.4.0:
+    resolution: {integrity: sha512-+1UMbeh68lH1SegH83CGWwpb6OHHbpSgr3+s5Eww5M4CAgswBpoWS0AjTOfEJ33HiYKz1hdj/KTFprzXHmq/6w==}
 
   detect-libc@2.1.2:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
@@ -593,6 +625,16 @@ packages:
     resolution: {integrity: sha512-CvexbZtbov6jW2eXAvLukXjXUW1TzFaivC46BpWc/3BpcCysb5Vffu+B3XHMm8lVEuy2Mm4XGex8hBSg1yapPg==}
     engines: {node: '>=12.0.0'}
 
+  react-datepicker@9.1.0:
+    resolution: {integrity: sha512-lOp+m5bc+ttgtB5MHEjwiVu4nlp4CvJLS/PG1OiOe5pmg9kV73pEqO8H0Geqvg2E8gjqTaL9eRhSe+ZpeKP3nA==}
+    peerDependencies:
+      date-fns-tz: ^3.0.0
+      react: ^16.9.0 || ^17 || ^18 || ^19 || ^19.0.0-rc
+      react-dom: ^16.9.0 || ^17 || ^18 || ^19 || ^19.0.0-rc
+    peerDependenciesMeta:
+      date-fns-tz:
+        optional: true
+
   react-dom@19.2.5:
     resolution: {integrity: sha512-J5bAZz+DXMMwW/wV3xzKke59Af6CHY7G4uYLN1OvBcKEsWOs4pQExj86BBKamxl/Ik5bx9whOrvBlSDfWzgSag==}
     peerDependencies:
@@ -645,6 +687,9 @@ packages:
         optional: true
       babel-plugin-macros:
         optional: true
+
+  tabbable@6.5.0:
+    resolution: {integrity: sha512-wieBHXygIm7OyQOu5hQlkk62/WyCFYGlWg7L6/ZCUZwx0o398Zkn4pVmMyfYhfMG8kGrj/Krt8eIk6UKC6VzwA==}
 
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
@@ -1011,6 +1056,31 @@ snapshots:
 
   '@firebase/webchannel-wrapper@1.0.5': {}
 
+  '@floating-ui/core@1.7.5':
+    dependencies:
+      '@floating-ui/utils': 0.2.11
+
+  '@floating-ui/dom@1.7.6':
+    dependencies:
+      '@floating-ui/core': 1.7.5
+      '@floating-ui/utils': 0.2.11
+
+  '@floating-ui/react-dom@2.1.8(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
+    dependencies:
+      '@floating-ui/dom': 1.7.6
+      react: 19.2.5
+      react-dom: 19.2.5(react@19.2.5)
+
+  '@floating-ui/react@0.27.19(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
+    dependencies:
+      '@floating-ui/react-dom': 2.1.8(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+      '@floating-ui/utils': 0.2.11
+      react: 19.2.5
+      react-dom: 19.2.5(react@19.2.5)
+      tabbable: 6.5.0
+
+  '@floating-ui/utils@0.2.11': {}
+
   '@grpc/grpc-js@1.9.15':
     dependencies:
       '@grpc/proto-loader': 0.7.15
@@ -1177,6 +1247,14 @@ snapshots:
     dependencies:
       undici-types: 6.21.0
 
+  '@types/react-datepicker@7.0.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
+    dependencies:
+      react-datepicker: 9.1.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+    transitivePeerDependencies:
+      - date-fns-tz
+      - react
+      - react-dom
+
   '@types/react-dom@19.2.3(@types/react@19.2.14)':
     dependencies:
       '@types/react': 19.2.14
@@ -1201,6 +1279,8 @@ snapshots:
       strip-ansi: 6.0.1
       wrap-ansi: 7.0.0
 
+  clsx@2.1.1: {}
+
   color-convert@2.0.1:
     dependencies:
       color-name: 1.1.4
@@ -1208,6 +1288,8 @@ snapshots:
   color-name@1.1.4: {}
 
   csstype@3.2.3: {}
+
+  date-fns@4.4.0: {}
 
   detect-libc@2.1.2:
     optional: true
@@ -1313,6 +1395,14 @@ snapshots:
       '@types/node': 22.19.17
       long: 5.3.2
 
+  react-datepicker@9.1.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5):
+    dependencies:
+      '@floating-ui/react': 0.27.19(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+      clsx: 2.1.1
+      date-fns: 4.4.0
+      react: 19.2.5
+      react-dom: 19.2.5(react@19.2.5)
+
   react-dom@19.2.5(react@19.2.5):
     dependencies:
       react: 19.2.5
@@ -1377,6 +1467,8 @@ snapshots:
     dependencies:
       client-only: 0.0.1
       react: 19.2.5
+
+  tabbable@6.5.0: {}
 
   tslib@2.8.1: {}
 

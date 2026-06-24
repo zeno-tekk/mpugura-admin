@@ -101,7 +101,7 @@ export default function StudentsPage() {
                     <strong style={{ color: 'var(--text-strong)', fontSize: '0.875rem' }}>{student.name}</strong>
                   </div>
                   <span className="meta-text" style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                    {student.email || '—'}
+                    {student.email || '-'}
                   </span>
                   <span className="meta-text">{student.role}</span>
                   <span>

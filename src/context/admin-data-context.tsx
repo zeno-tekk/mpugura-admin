@@ -196,6 +196,7 @@ export function AdminDataProvider({ children }: { children: ReactNode }) {
             options: Array.isArray(data.options) ? data.options : [],
             explanation: data.explanation ?? { en: '', fr: '', rw: '' },
             categoryId: data.categoryId ?? undefined,
+            imageUrl: data.imageUrl ?? undefined,
             createdAt: timestampToIso(data.createdAt),
             updatedAt: timestampToIso(data.updatedAt),
           } satisfies ExamQuestion;
@@ -329,6 +330,7 @@ export function AdminDataProvider({ children }: { children: ReactNode }) {
         options: question.options,
         explanation: question.explanation,
         ...(question.categoryId ? { categoryId: question.categoryId } : {}),
+        ...(question.imageUrl ? { imageUrl: question.imageUrl } : {}),
         updatedAt: serverTimestamp(),
         ...(isExisting ? {} : { createdAt: serverTimestamp() }),
       },
@@ -352,6 +354,7 @@ export function AdminDataProvider({ children }: { children: ReactNode }) {
           options: question.options,
           explanation: question.explanation,
           ...(question.categoryId ? { categoryId: question.categoryId } : {}),
+          ...(question.imageUrl ? { imageUrl: question.imageUrl } : {}),
           updatedAt: serverTimestamp(),
           ...(isExisting ? {} : { createdAt: serverTimestamp() }),
         },
