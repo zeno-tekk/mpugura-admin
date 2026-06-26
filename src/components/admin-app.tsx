@@ -1213,7 +1213,7 @@ export function AdminApp() {
             <span className="brand-pill">Access blocked</span>
             <h1>This account is not allowed into the admin.</h1>
             <p>
-              Add your email to <code>NEXT_PUBLIC_ADMIN_EMAILS</code> in the admin project if you want a simple allowlist.
+              Contact the system administrator to grant your account admin access.
             </p>
           </div>
           <button className="button button-primary button-block" type="button" onClick={() => void logout()}>

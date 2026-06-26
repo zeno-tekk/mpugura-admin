@@ -43,11 +43,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
           <div>
             <h2 className="auth-heading">Access Denied</h2>
             <p className="auth-sub">
-              This account is not authorized. Add your email to{' '}
-              <code style={{ background: 'var(--input-bg)', padding: '2px 6px', borderRadius: 4 }}>
-                NEXT_PUBLIC_ADMIN_EMAILS
-              </code>{' '}
-              to grant access.
+              This account does not have admin access. Contact the system administrator to grant you access.
             </p>
           </div>
           <button className="btn btn-primary btn-full" type="button" onClick={() => void logout()}>

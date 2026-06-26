@@ -8,7 +8,7 @@ import {
   signOut,
   type User as FirebaseUser,
 } from 'firebase/auth';
-import { doc, serverTimestamp, setDoc } from 'firebase/firestore';
+import { doc, getDoc } from 'firebase/firestore';
 import { firebaseAuth, firebaseDb, googleAuthProvider } from '@/lib/firebase';
 
 interface AuthUser {
@@ -36,11 +36,6 @@ const AuthContext = createContext<AuthContextValue>({
   logout: async () => {},
 });
 
-const allowedAdminEmails = (process.env.NEXT_PUBLIC_ADMIN_EMAILS ?? '')
-  .split(',')
-  .map((email) => email.trim().toLowerCase())
-  .filter(Boolean);
-
 function mapUser(user: FirebaseUser): AuthUser {
   return {
     uid: user.uid,
@@ -48,12 +43,6 @@ function mapUser(user: FirebaseUser): AuthUser {
     email: user.email || '',
     photoURL: user.photoURL,
   };
-}
-
-function canAccessAdmin(email?: string | null) {
-  if (!email) return false;
-  if (!allowedAdminEmails.length) return true;
-  return allowedAdminEmails.includes(email.toLowerCase());
 }
 
 export function AuthProvider({ children }: { children: ReactNode }) {
@@ -70,37 +59,40 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         return;
       }
 
-      const nextUser = mapUser(firebaseUser);
-      const authorized = canAccessAdmin(nextUser.email);
-      setUser(nextUser);
-      setIsAuthorized(authorized);
-      setIsLoading(false);
+      void (async () => {
+        const snap = await getDoc(doc(firebaseDb, 'users', firebaseUser.uid));
+        const isAdmin = snap.data()?.role === 'admin';
 
-      // Persist the admin role to Firestore so security rules can verify it.
-      // This write is allowed by the `allow create/update: if isOwn(userId)` rule.
-      if (authorized) {
-        void setDoc(
-          doc(firebaseDb, 'users', firebaseUser.uid),
-          {
-            role: 'admin',
-            email: nextUser.email,
-            name: nextUser.name,
-            updatedAt: serverTimestamp(),
-          },
-          { merge: true },
-        );
-      }
+        if (!isAdmin) {
+          await signOut(firebaseAuth);
+          return;
+        }
+
+        setUser(mapUser(firebaseUser));
+        setIsAuthorized(true);
+        setIsLoading(false);
+      })();
     });
 
     return unsubscribe;
   }, []);
 
+  async function assertAdminRole(uid: string) {
+    const snap = await getDoc(doc(firebaseDb, 'users', uid));
+    if (snap.data()?.role !== 'admin') {
+      await signOut(firebaseAuth);
+      throw new Error('This account does not have admin access.');
+    }
+  }
+
   const login = async (email: string, password: string) => {
-    await signInWithEmailAndPassword(firebaseAuth, email, password);
+    const { user: firebaseUser } = await signInWithEmailAndPassword(firebaseAuth, email, password);
+    await assertAdminRole(firebaseUser.uid);
   };
 
   const loginWithGoogle = async () => {
-    await signInWithPopup(firebaseAuth, googleAuthProvider);
+    const { user: firebaseUser } = await signInWithPopup(firebaseAuth, googleAuthProvider);
+    await assertAdminRole(firebaseUser.uid);
   };
 
   const logout = async () => {
