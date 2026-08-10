@@ -239,7 +239,7 @@ export function AdminDataProvider({ children }: { children: ReactNode }) {
               updatedAt: timestampToIso(data.updatedAt),
             } satisfies StudentProfile;
           })
-          // Admins manage the platform, not learners — keep them out of the student roster.
+          // Admins manage the platform, not learners - keep them out of the student roster.
           .filter((student) => student.role !== 'admin')));
         markReady();
       },
@@ -423,7 +423,7 @@ export function AdminDataProvider({ children }: { children: ReactNode }) {
 
   const fetchStudentAttempts = async (userId: string): Promise<ExamAttempt[]> => {
     // Sorted client-side (rather than an `orderBy` in the query) to avoid requiring
-    // a composite Firestore index — matches the mobile/web app's own attempts query.
+    // a composite Firestore index - matches the mobile/web app's own attempts query.
     const snapshot = await getDocs(
       query(collection(firebaseDb, 'examAttempts'), where('userId', '==', userId))
     );
