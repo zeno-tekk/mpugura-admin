@@ -27,6 +27,12 @@ function formatSeconds(seconds: number) {
   return `${m}m ${s.toString().padStart(2, '0')}s`;
 }
 
+function platformLabel(platform: 'web' | 'app' | null | undefined) {
+  if (platform === 'web') return 'Web';
+  if (platform === 'app') return 'App';
+  return 'Unknown';
+}
+
 /* ── Edit modal ─────────────────────────────────────────────── */
 function EditStudentModal({
   student,
@@ -172,22 +178,26 @@ function StudentDetailModal({
           <div className="loading-state">Loading exam history…</div>
         ) : list.length ? (
           <div className="data-table">
-            <div className="data-table-header" style={{ gridTemplateColumns: '1.4fr 1fr 1fr 1fr 1fr' }}>
+            <div className="data-table-header" style={{ gridTemplateColumns: '1.4fr 1fr 1fr 1fr 0.9fr 1fr' }}>
               <span>Date</span>
               <span>Score</span>
               <span>Percent</span>
               <span>Time Used</span>
+              <span>Platform</span>
               <span>Result</span>
             </div>
             {list.map((attempt) => {
               const pct = percent(attempt.score, attempt.total);
               const passed = pct >= PASS_PERCENT;
               return (
-                <div key={attempt.id} className="data-table-row" style={{ gridTemplateColumns: '1.4fr 1fr 1fr 1fr 1fr' }}>
+                <div key={attempt.id} className="data-table-row" style={{ gridTemplateColumns: '1.4fr 1fr 1fr 1fr 0.9fr 1fr' }}>
                   <span className="meta-text">{formatDate(attempt.createdAt)}</span>
                   <span style={{ color: 'var(--text-strong)', fontWeight: 600 }}>{attempt.score}/{attempt.total}</span>
                   <span className="meta-text">{pct}%</span>
                   <span className="meta-text">{formatSeconds(attempt.timeUsed)}</span>
+                  <span>
+                    <span className="badge badge-info">{platformLabel(attempt.platform)}</span>
+                  </span>
                   <span>
                     <span className={`badge ${passed ? 'badge-success' : 'badge-danger'}`}>
                       {passed ? 'Passed' : 'Failed'}
@@ -200,7 +210,7 @@ function StudentDetailModal({
         ) : (
           <div className="empty-state">
             <h3>No exams yet</h3>
-            <p>This student hasn&apos;t completed a practice exam in the mobile app.</p>
+            <p>This student hasn&apos;t completed a practice exam on the web or mobile app.</p>
           </div>
         )}
       </div>

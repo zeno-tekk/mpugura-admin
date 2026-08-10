@@ -75,6 +75,7 @@ export interface ExamAttempt {
   timeUsed: number;
   answers: AttemptAnswer[];
   createdAt?: string | null;
+  platform?: 'web' | 'app' | null;
 }
 
 export interface ExamQuestion {

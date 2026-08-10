@@ -438,6 +438,7 @@ export function AdminDataProvider({ children }: { children: ReactNode }) {
         timeUsed: Number(data.timeUsed ?? 0),
         answers: Array.isArray(data.answers) ? data.answers : [],
         createdAt: timestampToIso(data.createdAt),
+        platform: data.platform ?? null,
       } satisfies ExamAttempt;
     });
 
