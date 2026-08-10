@@ -54,9 +54,27 @@ export interface StudentProfile {
   photoURL?: string | null;
   isPremium: boolean;
   role: string;
+  disabled?: boolean;
   createdAt?: string | null;
   lastLoginAt?: string | null;
   updatedAt?: string | null;
+}
+
+export interface AttemptAnswer {
+  questionId: string;
+  question: MultiLang;
+  options: QuestionOption[];
+  selectedIndex: number | null;
+}
+
+export interface ExamAttempt {
+  id: string;
+  userId: string;
+  score: number;
+  total: number;
+  timeUsed: number;
+  answers: AttemptAnswer[];
+  createdAt?: string | null;
 }
 
 export interface ExamQuestion {

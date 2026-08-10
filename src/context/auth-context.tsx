@@ -2,10 +2,14 @@
 
 import React, { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
 import {
+  EmailAuthProvider,
   onAuthStateChanged,
+  reauthenticateWithCredential,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updatePassword,
+  updateProfile,
   type User as FirebaseUser,
 } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
@@ -16,6 +20,7 @@ interface AuthUser {
   name: string;
   email: string;
   photoURL?: string | null;
+  hasPasswordProvider: boolean;
 }
 
 interface AuthContextValue {
@@ -25,6 +30,8 @@ interface AuthContextValue {
   login: (email: string, password: string) => Promise<void>;
   loginWithGoogle: () => Promise<void>;
   logout: () => Promise<void>;
+  updateDisplayName: (name: string) => Promise<void>;
+  changePassword: (currentPassword: string, newPassword: string) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextValue>({
@@ -34,6 +41,8 @@ const AuthContext = createContext<AuthContextValue>({
   login: async () => {},
   loginWithGoogle: async () => {},
   logout: async () => {},
+  updateDisplayName: async () => {},
+  changePassword: async () => {},
 });
 
 function mapUser(user: FirebaseUser): AuthUser {
@@ -42,6 +51,7 @@ function mapUser(user: FirebaseUser): AuthUser {
     name: user.displayName?.trim() || user.email?.split('@')[0] || 'Admin',
     email: user.email || '',
     photoURL: user.photoURL,
+    hasPasswordProvider: user.providerData.some((p) => p.providerId === 'password'),
   };
 }
 
@@ -99,8 +109,26 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     await signOut(firebaseAuth);
   };
 
+  const updateDisplayName = async (name: string) => {
+    const current = firebaseAuth.currentUser;
+    if (!current) throw new Error('You need to be signed in to do that.');
+    const trimmed = name.trim();
+    await updateProfile(current, { displayName: trimmed });
+    setUser((u) => (u ? { ...u, name: trimmed || u.name } : u));
+  };
+
+  const changePassword = async (currentPassword: string, newPassword: string) => {
+    const current = firebaseAuth.currentUser;
+    if (!current || !current.email) throw new Error('You need to be signed in to do that.');
+    const credential = EmailAuthProvider.credential(current.email, currentPassword);
+    await reauthenticateWithCredential(current, credential);
+    await updatePassword(current, newPassword);
+  };
+
   return (
-    <AuthContext.Provider value={{ user, isLoading, isAuthorized, login, loginWithGoogle, logout }}>
+    <AuthContext.Provider
+      value={{ user, isLoading, isAuthorized, login, loginWithGoogle, logout, updateDisplayName, changePassword }}
+    >
       {children}
     </AuthContext.Provider>
   );

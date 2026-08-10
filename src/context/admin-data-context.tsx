@@ -6,19 +6,23 @@ import {
   collection,
   deleteDoc,
   doc,
+  getDocs,
   onSnapshot,
+  query,
   serverTimestamp,
   setDoc,
+  where,
   writeBatch,
 } from 'firebase/firestore';
 import { firebaseDb } from '@/lib/firebase';
 import { useAuth } from '@/context/auth-context';
-import type { Category, ExamQuestion, Lesson, PaymentRecord, PaymentStatus, Question, StudentProfile } from '@/lib/types';
+import type { Category, ExamAttempt, ExamQuestion, Lesson, PaymentRecord, PaymentStatus, Question, StudentProfile } from '@/lib/types';
 
 type CategoryInput = Omit<Category, 'createdAt' | 'updatedAt'>;
 type LessonInput = Omit<Lesson, 'createdAt' | 'updatedAt'>;
 type ExamQuestionInput = Omit<ExamQuestion, 'createdAt' | 'updatedAt'>;
 type PaymentInput = Omit<PaymentRecord, 'id' | 'createdAt' | 'updatedAt' | 'paidAt'> & { id?: string; grantPremium?: boolean };
+type StudentUpdateInput = Partial<Pick<StudentProfile, 'name' | 'email' | 'isPremium'>>;
 
 interface AdminDataContextValue {
   categories: Category[];
@@ -37,6 +41,10 @@ interface AdminDataContextValue {
   savePayment: (payment: PaymentInput) => Promise<void>;
   deletePayment: (id: string) => Promise<void>;
   setStudentPremium: (userId: string, isPremium: boolean) => Promise<void>;
+  updateStudent: (userId: string, updates: StudentUpdateInput) => Promise<void>;
+  deleteStudent: (userId: string) => Promise<void>;
+  restoreStudent: (userId: string) => Promise<void>;
+  fetchStudentAttempts: (userId: string) => Promise<ExamAttempt[]>;
   seedDefaultContent: () => Promise<void>;
 }
 
@@ -57,6 +65,10 @@ const AdminDataContext = createContext<AdminDataContextValue>({
   savePayment: async () => {},
   deletePayment: async () => {},
   setStudentPremium: async () => {},
+  updateStudent: async () => {},
+  deleteStudent: async () => {},
+  restoreStudent: async () => {},
+  fetchStudentAttempts: async () => [],
   seedDefaultContent: async () => {},
 });
 
@@ -211,20 +223,24 @@ export function AdminDataProvider({ children }: { children: ReactNode }) {
       (snapshot) => {
         if (!isMounted) return;
 
-        setStudents(sortStudents(snapshot.docs.map((item) => {
-          const data = item.data();
-          return {
-            id: item.id,
-            name: data.name ?? 'Student',
-            email: data.email ?? '',
-            photoURL: data.photoURL ?? null,
-            isPremium: data.isPremium ?? false,
-            role: data.role ?? 'student',
-            createdAt: timestampToIso(data.createdAt),
-            lastLoginAt: timestampToIso(data.lastLoginAt),
-            updatedAt: timestampToIso(data.updatedAt),
-          } satisfies StudentProfile;
-        })));
+        setStudents(sortStudents(snapshot.docs
+          .map((item) => {
+            const data = item.data();
+            return {
+              id: item.id,
+              name: data.name ?? 'Student',
+              email: data.email ?? '',
+              photoURL: data.photoURL ?? null,
+              isPremium: data.isPremium ?? false,
+              role: data.role ?? 'student',
+              disabled: data.disabled ?? false,
+              createdAt: timestampToIso(data.createdAt),
+              lastLoginAt: timestampToIso(data.lastLoginAt),
+              updatedAt: timestampToIso(data.updatedAt),
+            } satisfies StudentProfile;
+          })
+          // Admins manage the platform, not learners — keep them out of the student roster.
+          .filter((student) => student.role !== 'admin')));
         markReady();
       },
       () => markReady()
@@ -376,6 +392,58 @@ export function AdminDataProvider({ children }: { children: ReactNode }) {
     );
   };
 
+  const updateStudent = async (userId: string, updates: StudentUpdateInput) => {
+    const payload: Record<string, unknown> = { updatedAt: serverTimestamp() };
+    if (updates.name !== undefined) payload.name = updates.name.trim();
+    if (updates.email !== undefined) payload.email = updates.email.trim();
+    if (updates.isPremium !== undefined) payload.isPremium = updates.isPremium;
+
+    await setDoc(doc(firebaseDb, 'users', userId), payload, { merge: true });
+  };
+
+  // There is no Firebase Admin SDK configured in this project, so we can't delete the
+  // underlying Auth account from the client. Instead we flag the profile as disabled:
+  // it disappears from the roster here, and the app/web sign the user out on their
+  // next auth check (see AuthContext's disabled check) until an admin restores them.
+  const deleteStudent = async (userId: string) => {
+    await setDoc(
+      doc(firebaseDb, 'users', userId),
+      { disabled: true, updatedAt: serverTimestamp() },
+      { merge: true }
+    );
+  };
+
+  const restoreStudent = async (userId: string) => {
+    await setDoc(
+      doc(firebaseDb, 'users', userId),
+      { disabled: false, updatedAt: serverTimestamp() },
+      { merge: true }
+    );
+  };
+
+  const fetchStudentAttempts = async (userId: string): Promise<ExamAttempt[]> => {
+    // Sorted client-side (rather than an `orderBy` in the query) to avoid requiring
+    // a composite Firestore index — matches the mobile/web app's own attempts query.
+    const snapshot = await getDocs(
+      query(collection(firebaseDb, 'examAttempts'), where('userId', '==', userId))
+    );
+
+    const attempts = snapshot.docs.map((item) => {
+      const data = item.data();
+      return {
+        id: item.id,
+        userId: data.userId ?? userId,
+        score: Number(data.score ?? 0),
+        total: Number(data.total ?? 0),
+        timeUsed: Number(data.timeUsed ?? 0),
+        answers: Array.isArray(data.answers) ? data.answers : [],
+        createdAt: timestampToIso(data.createdAt),
+      } satisfies ExamAttempt;
+    });
+
+    return attempts.sort((a, b) => (b.createdAt ?? '').localeCompare(a.createdAt ?? ''));
+  };
+
   const savePayment = async (payment: PaymentInput) => {
     const payload = {
       userId: payment.userId || null,
@@ -492,6 +560,10 @@ export function AdminDataProvider({ children }: { children: ReactNode }) {
         savePayment,
         deletePayment,
         setStudentPremium,
+        updateStudent,
+        deleteStudent,
+        restoreStudent,
+        fetchStudentAttempts,
         seedDefaultContent,
       }}
     >

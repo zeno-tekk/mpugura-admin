@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useAdminData } from '@/context/admin-data-context';
 import { formatDate, formatMoney, getInitials } from '@/lib/utils';
+import { getFriendlyErrorMessage } from '@/lib/errors';
 
 function StatCard({
   label,
@@ -106,7 +107,7 @@ export default function DashboardPage() {
       await seedDefaultContent();
       alert('Default content seeded successfully.');
     } catch (err) {
-      alert(`Seed failed: ${err instanceof Error ? err.message : 'Unknown error'}`);
+      alert(`Could not seed the catalog. ${getFriendlyErrorMessage(err)}`);
     }
   };
 

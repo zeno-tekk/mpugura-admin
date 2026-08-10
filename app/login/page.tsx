@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/auth-context';
+import { getFriendlyErrorMessage } from '@/lib/errors';
+import { PasswordField } from '@/components/password-field';
 
 export default function LoginPage() {
   const { user, isLoading, isAuthorized, login, loginWithGoogle } = useAuth();
@@ -22,7 +24,7 @@ export default function LoginPage() {
     try {
       await login(form.email.trim(), form.password);
     } catch (err) {
-      const msg = err instanceof Error ? err.message : 'Could not sign in.';
+      const msg = getFriendlyErrorMessage(err, 'Could not sign in. Please try again.');
       setForm((f) => ({ ...f, error: msg, isSubmitting: false }));
     }
   };
@@ -32,7 +34,7 @@ export default function LoginPage() {
     try {
       await loginWithGoogle();
     } catch (err) {
-      const msg = err instanceof Error ? err.message : 'Could not sign in with Google.';
+      const msg = getFriendlyErrorMessage(err, 'Could not sign in with Google. Please try again.');
       setForm((f) => ({ ...f, error: msg, isSubmitting: false }));
     }
   };
@@ -81,10 +83,9 @@ export default function LoginPage() {
 
           <label className="field">
             <span>Password</span>
-            <input
-              type="password"
+            <PasswordField
               value={form.password}
-              onChange={(e) => setForm((f) => ({ ...f, password: e.target.value }))}
+              onChange={(password) => setForm((f) => ({ ...f, password }))}
               required
               autoComplete="current-password"
             />

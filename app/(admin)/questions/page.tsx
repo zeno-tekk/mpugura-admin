@@ -3,6 +3,7 @@
 import React, { useRef, useState } from 'react';
 import { useAdminData } from '@/context/admin-data-context';
 import { cloneMultiLang } from '@/lib/utils';
+import { getFriendlyErrorMessage } from '@/lib/errors';
 import type { ExamQuestion, MultiLang } from '@/lib/types';
 
 /* ── Icons ─────────────────────────────────────────────────── */
@@ -472,7 +473,7 @@ function OptionsEditor({
       const { url } = (await res.json()) as { url: string };
       onOptionImageChange(idx, url);
     } catch (err) {
-      alert(`Option image upload failed: ${err instanceof Error ? err.message : 'Unknown'}`);
+      alert(`Could not upload the option image. ${getFriendlyErrorMessage(err)}`);
     } finally {
       setUploadingIdx(null);
       pendingIdxRef.current = null;
@@ -601,7 +602,7 @@ export default function QuestionsPage() {
       const { url } = (await res.json()) as { url: string };
       setDraft((d) => ({ ...d, imageUrl: url }));
     } catch (err) {
-      showNotice('error', `Image upload failed: ${err instanceof Error ? err.message : 'Unknown'}`);
+      showNotice('error', `Could not upload the image. ${getFriendlyErrorMessage(err)}`);
     } finally {
       setIsUploadingImage(false);
       if (imageFileRef.current) imageFileRef.current.value = '';
@@ -619,7 +620,7 @@ export default function QuestionsPage() {
       reset();
       showNotice('success', 'Question saved.');
     } catch (err) {
-      showNotice('error', `Could not save: ${err instanceof Error ? err.message : 'Unknown'}`);
+      showNotice('error', `Could not save question. ${getFriendlyErrorMessage(err)}`);
     } finally {
       setIsSaving(false);
     }
@@ -632,7 +633,7 @@ export default function QuestionsPage() {
       if (previewQuestion?.id === q.id) setPreviewQuestion(null);
       showNotice('success', 'Question deleted.');
     } catch (err) {
-      showNotice('error', `Could not delete: ${err instanceof Error ? err.message : 'Unknown'}`);
+      showNotice('error', `Could not delete question. ${getFriendlyErrorMessage(err)}`);
     }
   };
 
@@ -667,7 +668,7 @@ export default function QuestionsPage() {
       setImportFile(null); setImportParsed(null); setImportPreview(null);
       if (fileRef.current) fileRef.current.value = '';
     } catch (err) {
-      showNotice('error', `Import failed: ${err instanceof Error ? err.message : 'Unknown'}`);
+      showNotice('error', `Could not import questions. ${getFriendlyErrorMessage(err)}`);
     } finally {
       setIsImporting(false);
     }

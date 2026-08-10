@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAdminData } from '@/context/admin-data-context';
 import { cloneMultiLang } from '@/lib/utils';
+import { getFriendlyErrorMessage } from '@/lib/errors';
 import type { Lesson, MultiLang, Question } from '@/lib/types';
 
 interface LessonDraft {
@@ -122,7 +123,7 @@ export default function LessonsPage() {
       reset();
       showNotice('success', 'Lesson saved.');
     } catch (err) {
-      showNotice('error', `Could not save: ${err instanceof Error ? err.message : 'Unknown error'}`);
+      showNotice('error', `Could not save lesson. ${getFriendlyErrorMessage(err)}`);
     }
   };
 
@@ -132,7 +133,7 @@ export default function LessonsPage() {
       await deleteLesson(lesson.id);
       showNotice('success', 'Lesson deleted.');
     } catch (err) {
-      showNotice('error', `Could not delete: ${err instanceof Error ? err.message : 'Unknown error'}`);
+      showNotice('error', `Could not delete lesson. ${getFriendlyErrorMessage(err)}`);
     }
   };
 

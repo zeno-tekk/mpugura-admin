@@ -645,6 +645,28 @@ a { text-decoration: none; color: inherit; }
 
 .field small { font-size: 0.78rem; color: var(--muted); }
 
+/* ─── Password field with show/hide toggle ──────────────────── */
+.password-field { position: relative; display: flex; }
+.password-field input { padding-right: 40px; }
+.password-toggle {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: color var(--ease);
+}
+.password-toggle:hover { color: var(--text-strong); }
+
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .lang-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
 
@@ -805,6 +827,61 @@ a { text-decoration: none; color: inherit; }
 .students-cols { grid-template-columns: 2fr 2fr 1fr 1fr 1fr 1fr; gap: 12px; }
 /* Columns for payments table */
 .payments-cols { grid-template-columns: 2fr 1.5fr 1fr 1fr 1fr 1fr; gap: 12px; }
+
+/* ─── Modal ──────────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8,10,20,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 100;
+}
+
+.modal {
+  width: min(100%, 560px);
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.modal.modal-lg { width: min(100%, 760px); }
+
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.modal-header h2 { font-size: 1.1rem; color: var(--text-strong); }
+.modal-header p  { font-size: 0.82rem; color: var(--muted); margin-top: 3px; }
+
+.modal-close {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+.modal-close:hover { color: var(--text-strong); background: var(--card-hover); }
+
+.modal-footer { display: flex; justify-content: flex-end; gap: 8px; }
 
 /* ─── Responsive ─────────────────────────────────────────── */
 @media (max-width: 1200px) {

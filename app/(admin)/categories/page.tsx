@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useAdminData } from '@/context/admin-data-context';
 import { cloneMultiLang } from '@/lib/utils';
+import { getFriendlyErrorMessage } from '@/lib/errors';
 import type { Category, MultiLang } from '@/lib/types';
 
 interface CategoryDraft {
@@ -102,7 +103,7 @@ export default function CategoriesPage() {
       reset();
       showNotice('success', 'Category saved.');
     } catch (err) {
-      showNotice('error', `Could not save: ${err instanceof Error ? err.message : 'Unknown error'}`);
+      showNotice('error', `Could not save category. ${getFriendlyErrorMessage(err)}`);
     }
   };
 
@@ -112,7 +113,7 @@ export default function CategoriesPage() {
       await deleteCategory(cat.id);
       showNotice('success', 'Category deleted.');
     } catch (err) {
-      showNotice('error', `Could not delete: ${err instanceof Error ? err.message : 'Unknown error'}`);
+      showNotice('error', `Could not delete category. ${getFriendlyErrorMessage(err)}`);
     }
   };
 

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useAdminData } from '@/context/admin-data-context';
 import { formatDate, formatMoney } from '@/lib/utils';
+import { getFriendlyErrorMessage } from '@/lib/errors';
 import type { PaymentRecord, PaymentStatus } from '@/lib/types';
 
 interface PaymentDraft {
@@ -69,7 +70,7 @@ export default function PaymentsPage() {
       setDraft(createDraft());
       showNotice('success', draft.id ? 'Payment updated.' : 'Payment recorded.');
     } catch (err) {
-      showNotice('error', `Could not save: ${err instanceof Error ? err.message : 'Unknown error'}`);
+      showNotice('error', `Could not save payment. ${getFriendlyErrorMessage(err)}`);
     }
   };
 
@@ -96,7 +97,7 @@ export default function PaymentsPage() {
       await deletePayment(payment.id);
       showNotice('success', 'Payment deleted.');
     } catch (err) {
-      showNotice('error', `Could not delete: ${err instanceof Error ? err.message : 'Unknown error'}`);
+      showNotice('error', `Could not delete payment. ${getFriendlyErrorMessage(err)}`);
     }
   };
 
