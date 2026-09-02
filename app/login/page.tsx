@@ -44,8 +44,8 @@ export default function LoginPage() {
       <div className="auth-shell">
         <div className="auth-card" style={{ alignItems: 'center' }}>
           <div className="auth-brand">
-            <div className="logo-mark">M</div>
-            <div className="logo-name">Mpugura Admin</div>
+            <div className="logo-mark">N</div>
+            <div className="logo-name">Nyigisha Admin</div>
           </div>
           <p style={{ color: 'var(--muted)', fontSize: '0.9rem' }}>Loading…</p>
         </div>
@@ -57,8 +57,8 @@ export default function LoginPage() {
     <div className="auth-shell">
       <div className="auth-card">
         <div className="auth-brand">
-          <div className="logo-mark">M</div>
-          <div className="logo-name">Mpugura Admin</div>
+          <div className="logo-mark">N</div>
+          <div className="logo-name">Nyigisha Admin</div>
         </div>
 
         <div>

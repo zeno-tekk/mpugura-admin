@@ -1147,7 +1147,7 @@ export function AdminApp() {
     return (
       <div className="auth-shell">
         <div className="auth-card">
-          <h1>Mpugura Admin</h1>
+          <h1>Nyigisha Admin</h1>
           <p>Checking your Firebase session…</p>
         </div>
       </div>
@@ -1160,7 +1160,7 @@ export function AdminApp() {
         <div className="auth-card">
           <div className="brand-block">
             <span className="brand-pill">Admin MVP</span>
-            <h1>Manage Mpugura from the web</h1>
+            <h1>Manage Nyigisha from the web</h1>
             <p>
               Sign in with the same Firebase project used by the mobile app, then manage categories,
               lessons, students, and payments from one place.
@@ -1230,7 +1230,7 @@ export function AdminApp() {
         <div className="sidebar-top">
           <div className="brand-block">
             <span className="brand-pill">Firebase Only</span>
-            <h1>Mpugura Admin</h1>
+            <h1>Nyigisha Admin</h1>
             <p>Simple content and operations dashboard for your mobile app.</p>
           </div>
           <nav className="nav-list">

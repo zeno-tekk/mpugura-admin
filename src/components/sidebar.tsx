@@ -99,9 +99,9 @@ export function Sidebar() {
     <aside className="sidebar">
       {/* Logo */}
       <div className="sidebar-logo">
-        <div className="logo-mark">M</div>
+        <div className="logo-mark">N</div>
         <div>
-          <div className="logo-name">Mpugura Admin</div>
+          <div className="logo-name">Nyigisha Admin</div>
           <div className="logo-sub">Content Management</div>
         </div>
       </div>

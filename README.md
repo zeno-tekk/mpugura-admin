@@ -1,6 +1,6 @@
-# Mpugura Admin
+# Nyigisha Admin
 
-Simple Next.js admin panel for managing the Mpugura mobile app with Firebase only.
+Simple Next.js admin panel for managing the Nyigisha mobile app with Firebase only.
 
 ## What It Covers
 

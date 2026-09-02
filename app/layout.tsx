@@ -3,8 +3,8 @@ import './globals.css';
 import { AppProviders } from '@/context/app-providers';
 
 export const metadata = {
-  title: 'Mpugura Admin',
-  description: 'Admin panel for managing Mpugura content, students, and payments.',
+  title: 'Nyigisha Admin',
+  description: 'Admin panel for managing Nyigisha content, students, and payments.',
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
