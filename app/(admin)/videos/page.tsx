@@ -26,6 +26,10 @@ function createDraft(order = 1): VideoDraft {
   };
 }
 
+function truncate(text: string, max = 60): string {
+  return text.length > max ? `${text.slice(0, max).trim()}…` : text;
+}
+
 function nextVideoId(videos: Video[]): string {
   let max = 0;
   for (const v of videos) {
@@ -437,7 +441,7 @@ export default function VideosPage() {
               {videos.map((video) => (
                 <div key={video.id} className="list-item">
                   <div>
-                    <strong>{video.title.en || video.title.rw || video.id}</strong>
+                    <strong>{truncate(video.title.en || video.title.rw || video.id)}</strong>
                     <p>Order {video.order}</p>
                   </div>
                   <div className="flex-row">
