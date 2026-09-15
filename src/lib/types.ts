@@ -58,6 +58,8 @@ export interface StudentProfile {
   createdAt?: string | null;
   lastLoginAt?: string | null;
   updatedAt?: string | null;
+  signupPlatform?: 'web' | 'app' | null;
+  lastLoginPlatform?: 'web' | 'app' | null;
 }
 
 export interface AttemptAnswer {
@@ -85,6 +87,18 @@ export interface ExamQuestion {
   explanation: MultiLang;
   categoryId?: string;
   imageUrl?: string;
+  createdAt?: string | null;
+  updatedAt?: string | null;
+}
+
+export interface Video {
+  id: string;
+  title: MultiLang;
+  description?: MultiLang;
+  videoUrl: string;
+  thumbnailUrl?: string;
+  order: number;
+  published: boolean;
   createdAt?: string | null;
   updatedAt?: string | null;
 }

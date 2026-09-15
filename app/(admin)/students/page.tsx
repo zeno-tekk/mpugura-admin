@@ -148,6 +148,15 @@ function StudentDetailModal({
           <span className="meta-text">· Last seen {formatDate(student.lastLoginAt ?? student.createdAt)}</span>
         </div>
 
+        <div className="flex-row">
+          <span className="meta-text">
+            Joined via <span className="badge badge-info">{platformLabel(student.signupPlatform)}</span>
+          </span>
+          <span className="meta-text">
+            Last login via <span className="badge badge-info">{platformLabel(student.lastLoginPlatform)}</span>
+          </span>
+        </div>
+
         <div className="stats-grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
           <div className="stat-card" style={{ padding: '14px 16px' }}>
             <div className="stat-card-label">Exams Taken</div>

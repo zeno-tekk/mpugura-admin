@@ -16,13 +16,14 @@ import {
 } from 'firebase/firestore';
 import { firebaseDb } from '@/lib/firebase';
 import { useAuth } from '@/context/auth-context';
-import type { Category, ExamAttempt, ExamQuestion, Lesson, PaymentRecord, PaymentStatus, Question, StudentProfile } from '@/lib/types';
+import type { Category, ExamAttempt, ExamQuestion, Lesson, PaymentRecord, PaymentStatus, Question, StudentProfile, Video } from '@/lib/types';
 
 type CategoryInput = Omit<Category, 'createdAt' | 'updatedAt'>;
 type LessonInput = Omit<Lesson, 'createdAt' | 'updatedAt'>;
 type ExamQuestionInput = Omit<ExamQuestion, 'createdAt' | 'updatedAt'>;
 type PaymentInput = Omit<PaymentRecord, 'id' | 'createdAt' | 'updatedAt' | 'paidAt'> & { id?: string; grantPremium?: boolean };
 type StudentUpdateInput = Partial<Pick<StudentProfile, 'name' | 'email' | 'isPremium'>>;
+type VideoInput = Omit<Video, 'createdAt' | 'updatedAt'>;
 
 interface AdminDataContextValue {
   categories: Category[];
@@ -30,11 +31,14 @@ interface AdminDataContextValue {
   examQuestions: ExamQuestion[];
   students: StudentProfile[];
   payments: PaymentRecord[];
+  videos: Video[];
   isLoading: boolean;
   saveCategory: (category: CategoryInput) => Promise<void>;
   deleteCategory: (id: string) => Promise<void>;
   saveLesson: (lesson: LessonInput) => Promise<void>;
   deleteLesson: (id: string) => Promise<void>;
+  saveVideo: (video: VideoInput) => Promise<void>;
+  deleteVideo: (id: string) => Promise<void>;
   saveExamQuestion: (question: ExamQuestionInput) => Promise<void>;
   deleteExamQuestion: (id: string) => Promise<void>;
   importExamQuestions: (questions: ExamQuestionInput[]) => Promise<number>;
@@ -55,10 +59,13 @@ const AdminDataContext = createContext<AdminDataContextValue>({
   students: [],
   payments: [],
   isLoading: true,
+  videos: [],
   saveCategory: async () => {},
   deleteCategory: async () => {},
   saveLesson: async () => {},
   deleteLesson: async () => {},
+  saveVideo: async () => {},
+  deleteVideo: async () => {},
   saveExamQuestion: async () => {},
   deleteExamQuestion: async () => {},
   importExamQuestions: async () => 0,
@@ -114,6 +121,10 @@ function sortPayments(payments: PaymentRecord[]) {
   });
 }
 
+function sortVideos(videos: Video[]) {
+  return [...videos].sort((left, right) => left.order - right.order || left.id.localeCompare(right.id));
+}
+
 export function AdminDataProvider({ children }: { children: ReactNode }) {
   const { user, isAuthorized } = useAuth();
   const [categories, setCategories] = useState<Category[]>([]);
@@ -121,6 +132,7 @@ export function AdminDataProvider({ children }: { children: ReactNode }) {
   const [examQuestions, setExamQuestions] = useState<ExamQuestion[]>([]);
   const [students, setStudents] = useState<StudentProfile[]>([]);
   const [payments, setPayments] = useState<PaymentRecord[]>([]);
+  const [videos, setVideos] = useState<Video[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -130,6 +142,7 @@ export function AdminDataProvider({ children }: { children: ReactNode }) {
       setExamQuestions([]);
       setStudents([]);
       setPayments([]);
+      setVideos([]);
       setIsLoading(false);
       return;
     }
@@ -139,7 +152,7 @@ export function AdminDataProvider({ children }: { children: ReactNode }) {
 
     const markReady = () => {
       readyCount += 1;
-      if (isMounted && readyCount >= 5) {
+      if (isMounted && readyCount >= 6) {
         setIsLoading(false);
       }
     };
@@ -237,6 +250,8 @@ export function AdminDataProvider({ children }: { children: ReactNode }) {
               createdAt: timestampToIso(data.createdAt),
               lastLoginAt: timestampToIso(data.lastLoginAt),
               updatedAt: timestampToIso(data.updatedAt),
+              signupPlatform: data.signupPlatform ?? null,
+              lastLoginPlatform: data.lastLoginPlatform ?? null,
             } satisfies StudentProfile;
           })
           // Admins manage the platform, not learners - keep them out of the student roster.
@@ -274,6 +289,30 @@ export function AdminDataProvider({ children }: { children: ReactNode }) {
       () => markReady()
     );
 
+    const unsubscribeVideos = onSnapshot(
+      collection(firebaseDb, 'videos'),
+      (snapshot) => {
+        if (!isMounted) return;
+
+        setVideos(sortVideos(snapshot.docs.map((item) => {
+          const data = item.data();
+          return {
+            id: item.id,
+            title: data.title ?? { en: '', fr: '', rw: '' },
+            description: data.description ?? undefined,
+            videoUrl: data.videoUrl ?? '',
+            thumbnailUrl: data.thumbnailUrl ?? undefined,
+            order: data.order ?? 0,
+            published: data.published ?? true,
+            createdAt: timestampToIso(data.createdAt),
+            updatedAt: timestampToIso(data.updatedAt),
+          } satisfies Video;
+        })));
+        markReady();
+      },
+      () => markReady()
+    );
+
     return () => {
       isMounted = false;
       unsubscribeCategories();
@@ -281,6 +320,7 @@ export function AdminDataProvider({ children }: { children: ReactNode }) {
       unsubscribeExamQuestions();
       unsubscribeStudents();
       unsubscribePayments();
+      unsubscribeVideos();
     };
   }, [user, isAuthorized]);
 
@@ -334,6 +374,30 @@ export function AdminDataProvider({ children }: { children: ReactNode }) {
 
   const deleteLesson = async (id: string) => {
     await deleteDoc(doc(firebaseDb, 'lessons', id));
+  };
+
+  const saveVideo = async (video: VideoInput) => {
+    const id = video.id.trim();
+    const isExisting = videos.some((item) => item.id === id);
+
+    await setDoc(
+      doc(firebaseDb, 'videos', id),
+      {
+        title: video.title,
+        ...(video.description ? { description: video.description } : {}),
+        videoUrl: video.videoUrl,
+        ...(video.thumbnailUrl ? { thumbnailUrl: video.thumbnailUrl } : {}),
+        order: Number(video.order),
+        published: video.published,
+        updatedAt: serverTimestamp(),
+        ...(isExisting ? {} : { createdAt: serverTimestamp() }),
+      },
+      { merge: true }
+    );
+  };
+
+  const deleteVideo = async (id: string) => {
+    await deleteDoc(doc(firebaseDb, 'videos', id));
   };
 
   const saveExamQuestion = async (question: ExamQuestionInput) => {
@@ -550,11 +614,14 @@ export function AdminDataProvider({ children }: { children: ReactNode }) {
         examQuestions,
         students,
         payments,
+        videos,
         isLoading,
         saveCategory,
         deleteCategory,
         saveLesson,
         deleteLesson,
+        saveVideo,
+        deleteVideo,
         saveExamQuestion,
         deleteExamQuestion,
         importExamQuestions,

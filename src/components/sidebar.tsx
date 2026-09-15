@@ -72,6 +72,15 @@ function QuestionsIcon() {
   );
 }
 
+function ShortsIcon() {
+  return (
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polygon points="23 7 16 12 23 17 23 7"/>
+      <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+    </svg>
+  );
+}
+
 
 /* ── Nav items ──────────────────────────────────────────── */
 const MAIN_NAV = [
@@ -79,6 +88,7 @@ const MAIN_NAV = [
   { href: '/categories', label: 'Categories', icon: <CategoriesIcon /> },
   { href: '/lessons',    label: 'Lessons',    icon: <LessonsIcon /> },
   { href: '/questions',  label: 'Questions',  icon: <QuestionsIcon /> },
+  { href: '/videos',     label: 'Shorts',     icon: <ShortsIcon /> },
   { href: '/students',   label: 'Students',   icon: <StudentsIcon /> },
 ];
 
