@@ -15,6 +15,14 @@ const PAGE_TITLES: Record<string, string> = {
   '/help':       'Help & Support',
 };
 
+function MenuIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  );
+}
+
 function SearchIcon() {
   return (
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -52,7 +60,7 @@ function BellIcon() {
   );
 }
 
-export function Navbar() {
+export function Navbar({ onMenuToggle }: { onMenuToggle: () => void }) {
   const pathname = usePathname();
   const { user } = useAuth();
   const { theme, toggleTheme } = useTheme();
@@ -68,6 +76,9 @@ export function Navbar() {
   return (
     <header className="topbar">
       <div className="topbar-left">
+        <button className="icon-btn menu-toggle-btn" type="button" onClick={onMenuToggle} aria-label="Toggle menu">
+          <MenuIcon />
+        </button>
         <span className="topbar-title">{title}</span>
         <span className="topbar-date">{today}</span>
       </div>

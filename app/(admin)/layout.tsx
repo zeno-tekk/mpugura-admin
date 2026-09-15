@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, type ReactNode } from 'react';
-import { useRouter } from 'next/navigation';
+import { useEffect, useState, type ReactNode } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 import { useAuth } from '@/context/auth-context';
 import { Sidebar } from '@/components/sidebar';
 import { Navbar } from '@/components/navbar';
@@ -9,6 +9,12 @@ import { Navbar } from '@/components/navbar';
 export default function AdminLayout({ children }: { children: ReactNode }) {
   const { user, isLoading, isAuthorized, logout } = useAuth();
   const router = useRouter();
+  const pathname = usePathname();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  useEffect(() => {
+    setIsSidebarOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     if (!isLoading && !user) {
@@ -56,9 +62,10 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
 
   return (
     <div className="app-shell">
-      <Sidebar />
+      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+      {isSidebarOpen && <div className="sidebar-backdrop" onClick={() => setIsSidebarOpen(false)} />}
       <div className="main-area">
-        <Navbar />
+        <Navbar onMenuToggle={() => setIsSidebarOpen((open) => !open)} />
         <main className="page-content">{children}</main>
       </div>
     </div>
