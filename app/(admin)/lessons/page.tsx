@@ -29,6 +29,23 @@ function createDraft(categoryId = '', order = 1): LessonDraft {
   };
 }
 
+function nextLessonId(lessons: Lesson[]): string {
+  let max = 0;
+  for (const l of lessons) {
+    const m = l.id.match(/^lesson-(\d+)$/);
+    if (m) max = Math.max(max, Number(m[1]));
+  }
+  return `lesson-${max + 1}`;
+}
+
+function nextLessonOrder(lessons: Lesson[], categoryId: string): number {
+  let max = 0;
+  for (const l of lessons) {
+    if (l.categoryId === categoryId) max = Math.max(max, l.order);
+  }
+  return max + 1;
+}
+
 function parseQuestions(raw: string): Question[] {
   if (!raw.trim()) return [];
   const parsed = JSON.parse(raw);
@@ -78,9 +95,17 @@ export default function LessonsPage() {
 
   useEffect(() => {
     if (!draft.categoryId && categories[0]?.id) {
-      setDraft((d) => ({ ...d, categoryId: categories[0]!.id }));
+      const categoryId = categories[0].id;
+      setDraft((d) => ({ ...d, categoryId, order: nextLessonOrder(lessons, categoryId) }));
     }
-  }, [categories, draft.categoryId]);
+  }, [categories, lessons, draft.categoryId]);
+
+  // Keep the auto-assigned order current while creating (e.g. once lessons finish loading).
+  useEffect(() => {
+    if (editingId || !draft.categoryId) return;
+    const order = nextLessonOrder(lessons, draft.categoryId);
+    setDraft((d) => (d.order === order ? d : { ...d, order }));
+  }, [lessons, editingId, draft.categoryId]);
 
   const showNotice = (tone: 'success' | 'error', text: string) => {
     setNotice({ tone, text });
@@ -89,7 +114,7 @@ export default function LessonsPage() {
 
   const reset = () => {
     setEditingId(null);
-    setDraft(createDraft(categories[0]?.id ?? '', lessons.length + 1));
+    setDraft(createDraft(categories[0]?.id ?? '', nextLessonOrder(lessons, categories[0]?.id ?? '')));
   };
 
   const startEdit = (lesson: Lesson) => {
@@ -109,7 +134,7 @@ export default function LessonsPage() {
     e.preventDefault();
     try {
       await saveLesson({
-        id: draft.id.trim(),
+        id: editingId ?? nextLessonId(lessons),
         categoryId: draft.categoryId,
         order: Number(draft.order),
         duration: Number(draft.duration),
@@ -170,18 +195,8 @@ export default function LessonsPage() {
             <>
               <div className="form-grid">
                 <label className="field">
-                  <span>Lesson ID</span>
-                  <input
-                    value={draft.id}
-                    onChange={(e) => set('id', e.target.value)}
-                    placeholder="rs1"
-                    disabled={Boolean(editingId)}
-                    required
-                  />
-                </label>
-                <label className="field">
                   <span>Category</span>
-                  <select value={draft.categoryId} onChange={(e) => set('categoryId', e.target.value)} required>
+                  <select value={draft.categoryId} onChange={(e) => setDraft((d) => ({ ...d, categoryId: e.target.value, ...(editingId ? {} : { order: nextLessonOrder(lessons, e.target.value) }) }))} required>
                     {categories.map((c) => (
                       <option key={c.id} value={c.id}>{c.title.en || c.id}</option>
                     ))}
