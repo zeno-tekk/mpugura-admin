@@ -24,8 +24,15 @@ export async function POST(req: NextRequest) {
   const file = formData.get('file') as File | null;
   if (!file) return NextResponse.json({ error: 'No file provided' }, { status: 400 });
 
+  // Callers may ask for a specific folder (e.g. lesson content images); anything
+  // off this list falls back to the original default so old callers keep working.
+  const ALLOWED_FOLDERS = ['mpugura/questions', 'mpugura/lessons'];
+  const requestedFolder = formData.get('folder');
+  const folder = typeof requestedFolder === 'string' && ALLOWED_FOLDERS.includes(requestedFolder)
+    ? requestedFolder
+    : 'mpugura/questions';
+
   const timestamp = Math.round(Date.now() / 1000);
-  const folder = 'mpugura/questions';
 
   // Cloudinary signature: SHA1 of sorted params + api_secret
   const paramStr = `folder=${folder}&timestamp=${timestamp}`;

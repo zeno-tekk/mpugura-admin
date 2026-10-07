@@ -2,8 +2,11 @@
 
 import React, { useEffect, useState } from 'react';
 import { useAdminData } from '@/context/admin-data-context';
+import { ConfirmDialog } from '@/components/confirm-dialog';
+import { RichTextEditor } from '@/components/rich-text-editor';
 import { cloneMultiLang } from '@/lib/utils';
 import { getFriendlyErrorMessage } from '@/lib/errors';
+import { toEditableHtml } from '@/lib/markdown';
 import type { Lesson, MultiLang, Question } from '@/lib/types';
 
 interface LessonDraft {
@@ -92,6 +95,13 @@ export default function LessonsPage() {
   const [draft, setDraft]         = useState<LessonDraft>(createDraft());
   const [editingId, setEditingId] = useState<string | null>(null);
   const [notice, setNotice]       = useState<{ tone: 'success' | 'error'; text: string } | null>(null);
+  const [deleting, setDeleting] = useState<Lesson | null>(null);
+  // Bumped on every reset()/startEdit() so <RichTextEditor> remounts instead of
+  // trying to resync its contentEditable DOM from a changed `value` prop - which
+  // it deliberately doesn't do (so typing doesn't get its caret reset on every
+  // keystroke). A remount is what makes the editor clear after save, and fill in
+  // immediately when a lesson is opened for editing.
+  const [formVersion, setFormVersion] = useState(0);
 
   useEffect(() => {
     if (!draft.categoryId && categories[0]?.id) {
@@ -115,15 +125,23 @@ export default function LessonsPage() {
   const reset = () => {
     setEditingId(null);
     setDraft(createDraft(categories[0]?.id ?? '', nextLessonOrder(lessons, categories[0]?.id ?? '')));
+    setFormVersion((v) => v + 1);
   };
 
   const startEdit = (lesson: Lesson) => {
     setEditingId(lesson.id);
+    setFormVersion((v) => v + 1);
     setDraft({
       id: lesson.id, categoryId: lesson.categoryId, order: lesson.order,
       duration: lesson.duration, icon: lesson.icon,
       title: cloneMultiLang(lesson.title),
-      content: cloneMultiLang(lesson.content),
+      // Lessons saved before the rich text editor existed hold plain markdown-ish text;
+      // convert it to HTML once so it opens in the editor already formatted.
+      content: {
+        en: toEditableHtml(lesson.content.en),
+        rw: toEditableHtml(lesson.content.rw),
+        fr: toEditableHtml(lesson.content.fr),
+      },
       questionsJson: JSON.stringify(lesson.questions, null, 2),
       premiumOnly: lesson.premiumOnly, published: lesson.published,
     });
@@ -143,7 +161,7 @@ export default function LessonsPage() {
         content: cloneMultiLang(draft.content),
         questions: parseQuestions(draft.questionsJson),
         premiumOnly: draft.premiumOnly,
-        published: draft.published,
+        published: true,
       });
       reset();
       showNotice('success', 'Lesson saved.');
@@ -152,14 +170,13 @@ export default function LessonsPage() {
     }
   };
 
-  const handleDelete = async (lesson: Lesson) => {
-    if (!window.confirm(`Delete "${lesson.title.en || lesson.id}"?`)) return;
-    try {
-      await deleteLesson(lesson.id);
-      showNotice('success', 'Lesson deleted.');
-    } catch (err) {
-      showNotice('error', `Could not delete lesson. ${getFriendlyErrorMessage(err)}`);
-    }
+  // Runs after the user confirms in the dialog; errors are shown inside the dialog.
+  const handleConfirmDelete = async () => {
+    if (!deleting) return;
+    await deleteLesson(deleting.id);
+
+    setDeleting(null);
+    showNotice('success', 'Lesson deleted.');
   };
 
   const set = (key: keyof LessonDraft, val: unknown) =>
@@ -203,22 +220,10 @@ export default function LessonsPage() {
                   </select>
                 </label>
                 <label className="field">
-                  <span>Order</span>
-                  <input type="number" value={draft.order} onChange={(e) => set('order', Number(e.target.value))} min={1} required />
-                </label>
-                <label className="field">
                   <span>Duration (minutes)</span>
                   <input type="number" value={draft.duration} onChange={(e) => set('duration', Number(e.target.value))} min={1} required />
                 </label>
-                <label className="field">
-                  <span>Icon</span>
-                  <input value={draft.icon} onChange={(e) => set('icon', e.target.value)} placeholder="alert-circle" required />
-                </label>
                 <div className="toggle-cluster">
-                  <label className="toggle-field">
-                    <input type="checkbox" checked={draft.published} onChange={(e) => set('published', e.target.checked)} />
-                    <span>Published</span>
-                  </label>
                   <label className="toggle-field">
                     <input type="checkbox" checked={draft.premiumOnly} onChange={(e) => set('premiumOnly', e.target.checked)} />
                     <span>Premium only</span>
@@ -232,11 +237,11 @@ export default function LessonsPage() {
                 onChange={(lang, val) => setDraft((d) => ({ ...d, title: { ...d.title, [lang]: val } }))}
               />
 
-              <MultiLangFields
+              <RichTextEditor
+                key={formVersion}
                 label="Lesson content"
                 value={draft.content}
-                onChange={(lang, val) => setDraft((d) => ({ ...d, content: { ...d.content, [lang]: val } }))}
-                multiline
+                onChange={(lang, html) => setDraft((d) => ({ ...d, content: { ...d.content, [lang]: html } }))}
               />
 
               <label className="field">
@@ -284,7 +289,7 @@ export default function LessonsPage() {
                       </span>
                       {lesson.premiumOnly && <span className="badge badge-warning">Premium</span>}
                       <button className="btn btn-ghost btn-sm" type="button" onClick={() => startEdit(lesson)}>Edit</button>
-                      <button className="btn btn-danger btn-sm" type="button" onClick={() => void handleDelete(lesson)}>Delete</button>
+                      <button className="btn btn-danger btn-sm" type="button" onClick={() => setDeleting(lesson)}>Delete</button>
                     </div>
                   </div>
                 );
@@ -298,6 +303,16 @@ export default function LessonsPage() {
           )}
         </div>
       </div>
+      {deleting && (
+        <ConfirmDialog
+          title="Delete lesson"
+          message={`Delete "${deleting.title.en || deleting.id}"? Learners will no longer see this lesson. This cannot be undone.`}
+          confirmLabel="Delete"
+          tone="danger"
+          onConfirm={handleConfirmDelete}
+          onCancel={() => setDeleting(null)}
+        />
+      )}
     </>
   );
 }

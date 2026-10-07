@@ -173,7 +173,7 @@ export default function VideosPage() {
   const thumbnailFileRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (!editingId) setDraft((d) => ({ ...d, order: videos.length + 1 }));
+    if (!editingId) setDraft((d) => ({ ...d, order: videos.reduce((max, v) => Math.max(max, v.order), 0) + 1 }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [videos.length]);
 
@@ -184,7 +184,7 @@ export default function VideosPage() {
 
   const reset = () => {
     setEditingId(null);
-    setDraft(createDraft(videos.length + 1));
+    setDraft(createDraft(videos.reduce((max, v) => Math.max(max, v.order), 0) + 1));
     setVideoMode('upload');
     setThumbnailMode('upload');
   };
@@ -297,10 +297,6 @@ export default function VideosPage() {
           </div>
 
           <div className="form-grid">
-            <label className="field">
-              <span>Order</span>
-              <input type="number" value={draft.order} onChange={(e) => set('order', Number(e.target.value))} min={1} required />
-            </label>
             <label className="toggle-field">
               <input type="checkbox" checked={draft.published} onChange={(e) => set('published', e.target.checked)} />
               <span>Published</span>

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useAdminData } from '@/context/admin-data-context';
+import { ConfirmDialog } from '@/components/confirm-dialog';
 import { cloneMultiLang } from '@/lib/utils';
 import { getFriendlyErrorMessage } from '@/lib/errors';
 import type { Category, MultiLang } from '@/lib/types';
@@ -14,16 +15,39 @@ interface CategoryDraft {
   title: MultiLang;
   description: MultiLang;
   order: number;
-  published: boolean;
+}
+
+const PALETTE = ['#1E3A8A', '#065F46', '#B45309', '#9D174D', '#6D28D9', '#0E7490', '#B91C1C', '#4D7C0F'];
+
+// Light tint of the accent colour (accent mixed 90% with white) for card backgrounds.
+function tintOf(hex: string): string {
+  const m = /^#([0-9a-f]{6})$/i.exec(hex.trim());
+  if (!m) return '#EFF6FF';
+  const n = parseInt(m[1], 16);
+  const mix = (c: number) => Math.round(c * 0.1 + 255 * 0.9).toString(16).padStart(2, '0');
+  return `#${mix((n >> 16) & 255)}${mix((n >> 8) & 255)}${mix(n & 255)}`.toUpperCase();
 }
 
 function createDraft(order = 1): CategoryDraft {
   return {
-    id: '', icon: 'book', color: '#1E3A8A', bgColor: '#EFF6FF',
+    id: '', icon: 'book', color: PALETTE[Math.floor(Math.random() * PALETTE.length)], bgColor: '',
     title: { en: '', fr: '', rw: '' },
     description: { en: '', fr: '', rw: '' },
-    order, published: true,
+    order,
   };
+}
+
+function nextCategoryId(categories: Category[]): string {
+  let max = 0;
+  for (const c of categories) {
+    const m = c.id.match(/^cat-(\d+)$/);
+    if (m) max = Math.max(max, Number(m[1]));
+  }
+  return `cat-${max + 1}`;
+}
+
+function nextCategoryOrder(categories: Category[]): number {
+  return categories.reduce((max, c) => Math.max(max, c.order), 0) + 1;
 }
 
 function MultiLangFields({
@@ -60,11 +84,12 @@ function MultiLangFields({
 }
 
 export default function CategoriesPage() {
-  const { categories, isLoading, saveCategory, deleteCategory } = useAdminData();
+  const { categories, lessons, isLoading, saveCategory, deleteCategory } = useAdminData();
 
   const [draft, setDraft]         = useState<CategoryDraft>(createDraft());
   const [editingId, setEditingId] = useState<string | null>(null);
   const [notice, setNotice]       = useState<{ tone: 'success' | 'error'; text: string } | null>(null);
+  const [deleting, setDeleting] = useState<Category | null>(null);
 
   const showNotice = (tone: 'success' | 'error', text: string) => {
     setNotice({ tone, text });
@@ -73,7 +98,7 @@ export default function CategoriesPage() {
 
   const reset = () => {
     setEditingId(null);
-    setDraft(createDraft(categories.length + 1));
+    setDraft(createDraft());
   };
 
   const startEdit = (cat: Category) => {
@@ -82,7 +107,7 @@ export default function CategoriesPage() {
       id: cat.id, icon: cat.icon, color: cat.color, bgColor: cat.bgColor,
       title: cloneMultiLang(cat.title),
       description: cloneMultiLang(cat.description),
-      order: cat.order, published: cat.published,
+      order: cat.order,
     });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -91,14 +116,14 @@ export default function CategoriesPage() {
     e.preventDefault();
     try {
       await saveCategory({
-        id: draft.id.trim(),
+        id: editingId ?? nextCategoryId(categories),
         icon: draft.icon.trim(),
         color: draft.color.trim(),
-        bgColor: draft.bgColor.trim(),
+        bgColor: tintOf(draft.color),
         title: cloneMultiLang(draft.title),
         description: cloneMultiLang(draft.description),
-        order: Number(draft.order),
-        published: draft.published,
+        order: editingId ? Number(draft.order) : nextCategoryOrder(categories),
+        published: true,
       });
       reset();
       showNotice('success', 'Category saved.');
@@ -107,14 +132,13 @@ export default function CategoriesPage() {
     }
   };
 
-  const handleDelete = async (cat: Category) => {
-    if (!window.confirm(`Delete "${cat.title.en || cat.id}"?`)) return;
-    try {
-      await deleteCategory(cat.id);
-      showNotice('success', 'Category deleted.');
-    } catch (err) {
-      showNotice('error', `Could not delete category. ${getFriendlyErrorMessage(err)}`);
-    }
+  // Runs after the user confirms in the dialog; errors are shown inside the dialog.
+  const handleConfirmDelete = async () => {
+    if (!deleting) return;
+    await deleteCategory(deleting.id);
+
+    setDeleting(null);
+    showNotice('success', 'Category deleted.');
   };
 
   const set = (key: keyof CategoryDraft, val: unknown) =>
@@ -143,66 +167,6 @@ export default function CategoriesPage() {
             <div className="loading-state">Loading…</div>
           ) : (
             <>
-              <div className="form-grid">
-                <label className="field">
-                  <span>Category ID</span>
-                  <input
-                    value={draft.id}
-                    onChange={(e) => set('id', e.target.value)}
-                    placeholder="road-signs"
-                    disabled={Boolean(editingId)}
-                    required
-                  />
-                </label>
-                <label className="field">
-                  <span>Order</span>
-                  <input
-                    type="number"
-                    value={draft.order}
-                    onChange={(e) => set('order', Number(e.target.value))}
-                    min={1}
-                    required
-                  />
-                </label>
-                <label className="field">
-                  <span>Icon</span>
-                  <input
-                    value={draft.icon}
-                    onChange={(e) => set('icon', e.target.value)}
-                    placeholder="book"
-                    required
-                  />
-                </label>
-                <label className="field">
-                  <span>Accent color</span>
-                  <input
-                    value={draft.color}
-                    onChange={(e) => set('color', e.target.value)}
-                    placeholder="#1E3A8A"
-                    required
-                  />
-                </label>
-                <label className="field">
-                  <span>Background color</span>
-                  <input
-                    value={draft.bgColor}
-                    onChange={(e) => set('bgColor', e.target.value)}
-                    placeholder="#EFF6FF"
-                    required
-                  />
-                </label>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <label className="toggle-field">
-                    <input
-                      type="checkbox"
-                      checked={draft.published}
-                      onChange={(e) => set('published', e.target.checked)}
-                    />
-                    <span>Published</span>
-                  </label>
-                </div>
-              </div>
-
               <MultiLangFields
                 label="Category title"
                 value={draft.title}
@@ -215,6 +179,31 @@ export default function CategoriesPage() {
                 onChange={(lang, val) => setDraft((d) => ({ ...d, description: { ...d.description, [lang]: val } }))}
                 multiline
               />
+
+              <div className="field">
+                <span>Color</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+                  {PALETTE.map((c) => (
+                    <button
+                      key={c}
+                      type="button"
+                      aria-label={`Use color ${c}`}
+                      onClick={() => set('color', c)}
+                      style={{
+                        width: 28, height: 28, borderRadius: '50%', background: c, cursor: 'pointer',
+                        border: draft.color.toUpperCase() === c ? '3px solid var(--text-strong)' : '2px solid transparent',
+                      }}
+                    />
+                  ))}
+                  <input
+                    type="color"
+                    value={/^#[0-9a-f]{6}$/i.test(draft.color) ? draft.color : '#1e3a8a'}
+                    onChange={(e) => set('color', e.target.value.toUpperCase())}
+                    aria-label="Pick a custom color"
+                    style={{ width: 36, height: 30, padding: 0, border: 'none', background: 'none', cursor: 'pointer' }}
+                  />
+                </div>
+              </div>
 
               <div className="flex-row">
                 <button className="btn btn-primary" type="submit">
@@ -252,7 +241,7 @@ export default function CategoriesPage() {
                     <button className="btn btn-ghost btn-sm" type="button" onClick={() => startEdit(cat)}>
                       Edit
                     </button>
-                    <button className="btn btn-danger btn-sm" type="button" onClick={() => void handleDelete(cat)}>
+                    <button className="btn btn-danger btn-sm" type="button" onClick={() => setDeleting(cat)}>
                       Delete
                     </button>
                   </div>
@@ -267,6 +256,16 @@ export default function CategoriesPage() {
           )}
         </div>
       </div>
+      {deleting && (
+        <ConfirmDialog
+          title="Delete category"
+          message={`Delete "${deleting.title.en || deleting.id}"? ${lessons.filter((l) => l.categoryId === deleting.id).length} lesson(s) in this category will no longer appear under any category. This cannot be undone.`}
+          confirmLabel="Delete"
+          tone="danger"
+          onConfirm={handleConfirmDelete}
+          onCancel={() => setDeleting(null)}
+        />
+      )}
     </>
   );
 }

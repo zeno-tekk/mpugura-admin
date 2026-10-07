@@ -1002,3 +1002,22 @@ a { text-decoration: none; color: inherit; }
   height: 15px;
   line-height: 15px;
 }
+
+/* ─── Lesson rich text editor ────────────────────────────── */
+.rte-content:focus { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(79,110,247,0.12); }
+.rte-content:empty::before {
+  content: 'Write the lesson content…';
+  color: var(--muted);
+}
+.rte-content ul, .rte-content ol { padding-left: 22px; margin: 8px 0; }
+.rte-content p { margin: 0 0 10px; }
+.rte-content h3 { font-size: 1.05rem; font-weight: 700; margin: 4px 0 8px; }
+.rte-content img { max-width: 100%; border-radius: 8px; display: block; margin: 8px 0; }
+
+/* Mirrors mpugura-web's .lesson-prose so the admin preview matches what students see. */
+.lesson-prose { font-size: 0.95rem; line-height: 1.7; }
+.lesson-prose p { margin: 0 0 14px; }
+.lesson-prose ul, .lesson-prose ol { padding-left: 22px; margin: 0 0 14px; display: flex; flex-direction: column; gap: 6px; }
+.lesson-prose h3 { font-size: 1.1rem; font-weight: 700; margin: 0 0 10px; color: var(--text-strong); }
+.lesson-prose strong { color: var(--text-strong); }
+.lesson-prose img { max-width: 100%; border-radius: 8px; display: block; }

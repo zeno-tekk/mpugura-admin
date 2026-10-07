@@ -3,6 +3,7 @@
 import React, { useRef, useState } from 'react';
 import { useAdminData } from '@/context/admin-data-context';
 import { authedFetch } from '@/lib/authed-fetch';
+import { ConfirmDialog } from '@/components/confirm-dialog';
 import { cloneMultiLang } from '@/lib/utils';
 import { getFriendlyErrorMessage } from '@/lib/errors';
 import type { ExamQuestion, MultiLang } from '@/lib/types';
@@ -537,6 +538,7 @@ export default function QuestionsPage() {
   const [imageMode, setImageMode] = useState<ImageMode>('upload');
   const [isUploadingImage, setIsUploadingImage] = useState(false);
   const [notice, setNotice] = useState<{ tone: 'success' | 'error'; text: string } | null>(null);
+  const [deleting, setDeleting] = useState<ExamQuestion | null>(null);
   const [isSaving, setIsSaving] = useState(false);
   const [isImporting, setIsImporting] = useState(false);
   const [showPreview, setShowPreview] = useState(false);
@@ -627,15 +629,14 @@ export default function QuestionsPage() {
     }
   };
 
-  const handleDelete = async (q: ExamQuestion) => {
-    if (!window.confirm(`Delete question "${q.id}"?`)) return;
-    try {
-      await deleteExamQuestion(q.id);
-      if (previewQuestion?.id === q.id) setPreviewQuestion(null);
-      showNotice('success', 'Question deleted.');
-    } catch (err) {
-      showNotice('error', `Could not delete question. ${getFriendlyErrorMessage(err)}`);
-    }
+  // Runs after the user confirms in the dialog; errors are shown inside the dialog.
+  const handleConfirmDelete = async () => {
+    if (!deleting) return;
+    await deleteExamQuestion(deleting.id);
+
+    if (previewQuestion?.id === deleting.id) setPreviewQuestion(null);
+    setDeleting(null);
+    showNotice('success', 'Question deleted.');
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -890,7 +891,7 @@ export default function QuestionsPage() {
                       <div className="flex-row" style={{ flexShrink: 0 }}>
                         <button className="btn btn-ghost btn-sm" type="button" onClick={() => openPreview(q)} title="Preview in mobile" style={{ display: 'flex', alignItems: 'center', gap: 4 }}><IcEye /> Preview</button>
                         <button className="btn btn-ghost btn-sm" type="button" onClick={() => startEdit(q)}>Edit</button>
-                        <button className="btn btn-danger btn-sm" type="button" onClick={() => void handleDelete(q)}>Delete</button>
+                        <button className="btn btn-danger btn-sm" type="button" onClick={() => setDeleting(q)}>Delete</button>
                       </div>
                     </div>
                   </div>
@@ -942,6 +943,16 @@ export default function QuestionsPage() {
           </div>
         )}
       </div>
+      {deleting && (
+        <ConfirmDialog
+          title="Delete question"
+          message={`Delete question "${deleting.id}"? It will be removed from the exam question bank. This cannot be undone.`}
+          confirmLabel="Delete"
+          tone="danger"
+          onConfirm={handleConfirmDelete}
+          onCancel={() => setDeleting(null)}
+        />
+      )}
     </>
   );
 }
