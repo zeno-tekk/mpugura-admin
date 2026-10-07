@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { useAdminData } from '@/context/admin-data-context';
+import { authedFetch } from '@/lib/authed-fetch';
 import { cloneMultiLang } from '@/lib/utils';
 import { getFriendlyErrorMessage } from '@/lib/errors';
 import type { MultiLang, Video } from '@/lib/types';
@@ -115,7 +116,7 @@ interface CloudinarySignature {
 }
 
 async function uploadVideoDirectToCloudinary(file: File, onProgress: (pct: number) => void): Promise<string> {
-  const sigRes = await fetch('/api/upload-signature', { method: 'POST' });
+  const sigRes = await authedFetch('/api/upload-signature', { method: 'POST' });
   if (!sigRes.ok) throw new Error(await sigRes.text());
   const sig = (await sigRes.json()) as CloudinarySignature;
 
@@ -148,7 +149,7 @@ async function uploadVideoDirectToCloudinary(file: File, onProgress: (pct: numbe
 async function uploadImage(file: File): Promise<string> {
   const form = new FormData();
   form.append('file', file);
-  const res = await fetch('/api/upload', { method: 'POST', body: form });
+  const res = await authedFetch('/api/upload', { method: 'POST', body: form });
   if (!res.ok) throw new Error(await res.text());
   const { url } = (await res.json()) as { url: string };
   return url;

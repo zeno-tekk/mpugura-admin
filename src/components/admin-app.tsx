@@ -293,9 +293,28 @@ export function AdminApp() {
     }
   };
 
+  const nextCategoryOrder = categories.reduce((max, category) => Math.max(max, category.order), 0) + 1;
+
+  // New categories get an ID slugged from the English title (falling back to the other
+  // languages), made unique with a numeric suffix.
+  const nextCategoryId = (() => {
+    const source = categoryDraft.title.en || categoryDraft.title.rw || categoryDraft.title.fr;
+    const base =
+      source
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '') || 'category';
+    const taken = new Set(categories.map((category) => category.id));
+    let candidate = base;
+    for (let n = 2; taken.has(candidate); n++) candidate = `${base}-${n}`;
+    return candidate;
+  })();
+
   const resetCategoryForm = () => {
     setEditingCategoryId(null);
-    setCategoryDraft(createCategoryDraft(categories.length + 1));
+    setCategoryDraft(createCategoryDraft());
   };
 
   const resetLessonForm = () => {
@@ -307,13 +326,13 @@ export function AdminApp() {
     event.preventDefault();
 
     const payload: Category = {
-      id: categoryDraft.id.trim(),
+      id: editingCategoryId ?? nextCategoryId,
       icon: categoryDraft.icon.trim(),
       color: categoryDraft.color.trim(),
       bgColor: categoryDraft.bgColor.trim(),
       title: cloneMultiLang(categoryDraft.title),
       description: cloneMultiLang(categoryDraft.description),
-      order: Number(categoryDraft.order),
+      order: editingCategoryId ? Number(categoryDraft.order) : nextCategoryOrder,
       published: categoryDraft.published,
     };
 
@@ -634,20 +653,20 @@ export function AdminApp() {
           <label className="field">
             <span>Category ID</span>
             <input
-              value={categoryDraft.id}
-              onChange={(event) => setCategoryDraft((current) => ({ ...current, id: event.target.value }))}
-              placeholder="road-signs"
-              disabled={Boolean(editingCategoryId)}
-              required
+              value={editingCategoryId ?? nextCategoryId}
+              readOnly
+              disabled
             />
           </label>
           <label className="field">
             <span>Order</span>
             <input
               type="number"
-              value={categoryDraft.order}
+              value={editingCategoryId ? categoryDraft.order : nextCategoryOrder}
               onChange={(event) => setCategoryDraft((current) => ({ ...current, order: Number(event.target.value) }))}
               min={1}
+              readOnly={!editingCategoryId}
+              disabled={!editingCategoryId}
               required
             />
           </label>

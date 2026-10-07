@@ -1,7 +1,11 @@
 import { createHash } from 'crypto';
 import { NextRequest, NextResponse } from 'next/server';
+import { requireAdmin } from '@/lib/require-admin';
 
 export async function POST(req: NextRequest) {
+  const denied = await requireAdmin(req);
+  if (denied) return denied;
+
   const cloud = process.env.CLOUDINARY_CLOUD_NAME;
   const apiKey = process.env.CLOUDINARY_API_KEY;
   const apiSecret = process.env.CLOUDINARY_API_SECRET;

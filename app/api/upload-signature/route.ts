@@ -1,11 +1,15 @@
 import { createHash } from 'crypto';
 import { NextResponse } from 'next/server';
+import { requireAdmin } from '@/lib/require-admin';
 
 // Returns a signed Cloudinary upload payload without touching the file itself.
 // Video files can exceed the serverless request-body limit if proxied through this
 // server (the way /api/upload does for question images), so the admin video form
 // uses this signature to upload the file directly from the browser to Cloudinary.
-export async function POST() {
+export async function POST(req: Request) {
+  const denied = await requireAdmin(req);
+  if (denied) return denied;
+
   const cloud = process.env.CLOUDINARY_CLOUD_NAME;
   const apiKey = process.env.CLOUDINARY_API_KEY;
   const apiSecret = process.env.CLOUDINARY_API_SECRET;
